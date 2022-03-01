@@ -1,0 +1,6 @@
+.profile{
+    display: flex;
+    width: 880px;
+    margin: 0 auto 50px;
+    border: solid 1px blue;
+}
