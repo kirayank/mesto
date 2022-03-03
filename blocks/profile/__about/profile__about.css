@@ -1,9 +1,11 @@
 .profile__about{
+    margin-top: 16px;
+    padding: 0;
     width: 336px;
     height: 18px;
-    font-family: Inter;
     font-style: normal;
     font-weight: normal;
     font-size: 18px;
     line-height: 22px;
+    border: solid 1px yellow;
 }

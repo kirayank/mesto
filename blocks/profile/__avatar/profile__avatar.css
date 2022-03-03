@@ -3,6 +3,7 @@
     background-size: contain;
     width: 120px;
     height: 120px;
-    border: solid 1px red;
     margin-right: 30px;
+    border-radius: 100px; /* Радиус скругления */
+    /*border: 3px solid ;  Параметры рамки */
 }
