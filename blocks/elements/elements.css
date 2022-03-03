@@ -1,0 +1,7 @@
+.elements{
+    min-width: 880px;
+    min-height: 774px;
+    border: solid 1px red;
+    margin: 50px auto 66px;
+    padding: 0;
+}
