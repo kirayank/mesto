@@ -1,10 +1,11 @@
-.profile__about{
-    margin-top: 16px;
-    padding: 0;
-    width: 336px;
+.footer__copyright{
+    width: 318px;
     height: 18px;
     font-style: normal;
     font-weight: normal;
     font-size: 18px;
     line-height: 22px;
+    color: #545454;
+    margin: 0;
+    padding: 0;
 }

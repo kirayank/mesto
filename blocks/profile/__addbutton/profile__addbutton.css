@@ -2,4 +2,10 @@
     width: 150px;
     height: 50px;
     background-image: url(../../../images/profile_add_button.png);
+    transition: opacity 0.3s linear;
+}
+
+.profile__addbutton:hover{
+    opacity: 0.6;
+    cursor: pointer;
 }

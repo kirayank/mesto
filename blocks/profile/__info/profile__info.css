@@ -1,7 +1,6 @@
 .profile__info{
-    width: 337px;
+    width: 340px;
     display: flex;
     flex-wrap: wrap;
-    border: solid 1px blue;
     margin-right: 244px;
 }
