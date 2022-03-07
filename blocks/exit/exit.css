@@ -1,0 +1,14 @@
+.exit{
+    background-image: url(../../images/exit.svg);
+    width: 32px;
+    height: 32px;
+    transition: opacity 0.3s linear;
+    margin-right: 0;
+    margin-left: 470px;
+    z-index: 2;
+}
+
+.exit:hover{
+    opacity: 0.6;
+    cursor: pointer;
+}

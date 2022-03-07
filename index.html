@@ -23,6 +23,16 @@
           <div class="profile__info">
               <p class="profile__name">Жак-Ив Кусто</p>
               <div class="profile__editbutton"></div>
+              <div class="profile__container">
+                <div class="exit"></div>
+                <form class="editform">
+                    <p class="editform__heading">Редактировать профиль</p>
+                        <input type="text" class="editform__name" autocomplete="on" value="Жак-Ив Кусто">
+                        <input type="text" class="editform__about" autocomplete="on" value="Исследователь океана">
+                    <button class="editform__save"></button>
+                </form> 
+              </div>
+              <div class="overlay"></div>
               <p class="profile__about">Исследователь океана</p>
           </div>
           <div class="profile__addbutton"></div>        
@@ -84,6 +94,6 @@
     </footer>
 
     </div>
-
+    <script src="./script.js"></script>
 </body>
 </html>
