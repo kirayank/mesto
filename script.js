@@ -19,8 +19,8 @@ let jobInput = document.querySelector('.editform__about');// Воспользу�
 
 function formSubmitHandler (evt) {
     evt.preventDefault(); // Эта строчка отменяет стандартную отправку форм
-
-    // Получите значение полей jobInput и nameInput из свойства value
+    nameInput.getAttribute('value');
+    jobInput.getAttribute('value'); // Получите значение полей jobInput и nameInput из свойства value
 
     // Выберите элементы, куда должны быть вставлены значения полей
 

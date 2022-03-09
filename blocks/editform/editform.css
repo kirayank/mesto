@@ -8,3 +8,11 @@
     border-radius: 10px;
     z-index: 2;
 }
+
+@media screen and (max-width: 320px) {
+    .editform {
+        width: 282px;
+        height: 322px;
+        margin: 123px 19px;
+    }
+}

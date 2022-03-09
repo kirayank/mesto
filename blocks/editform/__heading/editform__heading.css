@@ -8,3 +8,13 @@
     margin: 0;
     padding: 34px 64px 54px 36px;
 }
+
+@media screen and (max-width: 320px) {
+    .editform__heading {
+        min-width: 238px;
+        height: 22px;
+        font-size: 18px;
+        line-height: 22px;
+        padding: 25px 22px 75px;
+    }
+}

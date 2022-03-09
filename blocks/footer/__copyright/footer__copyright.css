@@ -9,3 +9,12 @@
     margin: 0;
     padding: 0;
 }
+
+@media screen and (max-width: 320px) {
+    .footer__copyright {
+        min-width: 282px;
+        min-height: 14px;
+        font-size: 14px;
+        line-height: 17px;
+    }
+}

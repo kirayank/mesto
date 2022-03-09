@@ -4,3 +4,11 @@
     flex-wrap: wrap;
     margin-right: 244px;
 }
+
+@media screen and (max-width: 320px) {
+    .profile__info {
+        width: 282px;
+        height: 54px;
+        margin: 26px 19px 36px;
+    }
+}

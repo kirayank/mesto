@@ -7,7 +7,9 @@
 
 @media screen and (max-width: 320px) {
     .logo {
+        background-size: cover;
         width: 103.74px;
         height: 24.4px;
+        margin: 0 189.26px 31.6px 27px;
     }
 }

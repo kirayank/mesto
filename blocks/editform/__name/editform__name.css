@@ -5,3 +5,12 @@
     border: none;
     border-bottom: solid 2px #e1e1e1;
 }
+
+@media screen and (max-width: 320px) {
+    .editform__name {
+        width: 238px;
+        font-size: 14px;
+        line-height: 17px;
+        margin: 0 22px 30px;
+    }
+}

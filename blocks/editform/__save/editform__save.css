@@ -10,3 +10,12 @@
     opacity: 0.6;
     cursor: pointer;
 }
+
+@media screen and (max-width: 320px) {
+    .editform__save {
+        width: 238px;
+        height: 46px;
+        margin: 0 22px 25px;
+        background-image: url(../../../images/save_button_mobile.svg);
+    }
+}

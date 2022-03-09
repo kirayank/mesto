@@ -8,3 +8,14 @@
     font-size: 18px;
     line-height: 22px;
 }
+
+@media screen and (max-width: 320px) {
+    .profile__about {
+        width: 282px;
+        height: 14px;
+        text-align: center;
+        font-size: 14px;
+        line-height: 17px;
+        margin-top: 14px;
+    }
+}

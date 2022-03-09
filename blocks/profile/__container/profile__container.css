@@ -25,3 +25,10 @@
       opacity: 1;
     }
   }
+
+  @media screen and (max-width: 320px) {
+    .profile__container {
+        left: 0;
+        top: 0;
+    }
+}

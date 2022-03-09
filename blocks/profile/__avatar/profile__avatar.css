@@ -7,3 +7,9 @@
     border-radius: 100px; /* Радиус скругления */
     /*border: 3px solid ;  Параметры рамки */
 }
+
+@media screen and (max-width: 320px) {
+    .profile__avatar {
+        margin-right: 10px;
+    }
+}
