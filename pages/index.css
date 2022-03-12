@@ -2,7 +2,7 @@
 @import url(../blocks/page/page.css);
 
 @import url(../blocks/header/header.css);
-@import url(../blocks/logo/logo.css);
+@import url(../blocks/header/__logo/header__logo.css);
 
 @import url(../blocks/profile/profile.css);
 @import url(../blocks/profile/__avatar/profile__avatar.css);
@@ -26,11 +26,10 @@
 @import url(../blocks/editform/editform.css);
 @import url(../blocks/editform/__heading/editform__heading.css);
 @import url(../blocks/profile/__container/profile__container.css);
-@import url(../blocks/exit/exit.css);
+@import url(../blocks/editform/__exit/editform__exit.css);
 @import url(../blocks/editform/__save/editform__save.css);
 @import url(../blocks/editform/__name/editform__name.css);
 @import url(../blocks/editform/__about/editform__about.css);
-@import url(../blocks/overlay/overlay.css);
 
 /*шрифт*/
 @import url(../fonts/Inter/Inter_Web/inter.css);

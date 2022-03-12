@@ -1,15 +1,12 @@
 const editbutton = document.querySelector('.profile__editbutton');
 const form = document.querySelector('.profile__container');
-const overlay = document.querySelector('.overlay');
 
 editbutton.addEventListener('click', () => {
-  overlay.classList.add('open');
   form.classList.add('open');
 });
 
-let exitbutton = document.querySelector('.exit');
+const exitbutton = document.querySelector('.editform__exit');
 exitbutton.addEventListener('click', () => {
-    overlay.classList.add('close');
     form.classList.add('close');
   });
 

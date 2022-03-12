@@ -1,7 +1,7 @@
 .profile__addbutton{
     width: 150px;
     height: 50px;
-    background-image: url(../../../images/profile_add_button.png);
+    background-image: url(../../../images/profile__add_button.svg);
     transition: opacity 0.3s linear;
 }
 

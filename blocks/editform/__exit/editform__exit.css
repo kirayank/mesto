@@ -1,5 +1,8 @@
-.exit{
-    background-image: url(../../images/exit.svg);
+.editform__exit{
+    position: relative;
+    background-color: transparent;
+    border: none;
+    background-image: url(../../../images/exit.svg);
     width: 32px;
     height: 32px;
     transition: opacity 0.3s linear;
@@ -8,19 +11,19 @@
     z-index: 2;
 }
 
-.exit:hover{
+.exeditform__exit:hover{
     opacity: 0.6;
     cursor: pointer;
 }
 
 @media screen and (max-width: 320px) {
-    .exit {
+    .editform__exit {
         position: absolute;
         width: 20px;
         height: 20px;
         left: 281px;
         top: 87px;
-        background-image: url(../../images/exit_mobile.svg);
+        background-image: url(../../../images/exit_mobile.svg);
         margin: 0;
     }
 }

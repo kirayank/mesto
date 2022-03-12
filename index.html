@@ -12,8 +12,7 @@
   <div class="page">
 
     <header class="header">
-      <div class="logo"></div>
-      <div class="header__line"></div>
+      <div class="header__logo"></div>
     </header>
 
     <main class="content">
@@ -21,18 +20,17 @@
       <section class="profile">
           <div class="profile__avatar"></div>
           <div class="profile__info">
-              <p class="profile__name">Жак-Ив Кусто</p>
-              <div class="profile__editbutton"></div>
+              <h1 class="profile__name">Жак-Ив Кусто</h1>
+              <button class="profile__editbutton" type="button" aria-label="Edit"></button>
               <div class="profile__container">
-                <div class="exit"></div>
+                <button class="editform__exit" type="button" aria-label="Close"></button>
                 <form class="editform">
-                    <p class="editform__heading">Редактировать профиль</p>
+                    <h1 class="editform__heading">Редактировать профиль</h1>
                         <input type="text" class="editform__name" autocomplete="on" value="Жак-Ив Кусто">
                         <input type="text" class="editform__about" autocomplete="on" value="Исследователь океана">
-                    <button class="editform__save"></button>
+                    <button class="editform__save" type="submit" aria-label="Save"></button>
                 </form> 
               </div>
-              <div class="overlay"></div>
               <p class="profile__about">Исследователь океана</p>
           </div>
           <div class="profile__addbutton"></div>        
@@ -43,43 +41,43 @@
               <li class="elements__element">
                   <img class="elements__image" src="./images/element_dombai.png" alt="Домбай">
                   <div class="elements__rectangle">
-                      <p class="elements__name">Домбай</p>
-                      <div class="elements__like"></div>
+                      <h1 class="elements__name">Домбай</h1>
+                      <button class="elements__like" type="button" aria-label="Like"></button>
                   </div>
               </li>
               <li class="elements__element">
                 <img class="elements__image" src="./images/element_elbrus.png" alt="Эльбрус">
                 <div class="elements__rectangle">
-                    <p class="elements__name">Гора Эльбрус</p>
-                    <div class="elements__like"></div>
+                    <h1 class="elements__name">Гора Эльбрус</h1>
+                    <button class="elements__like" type="button" aria-label="Like"></button>
                 </div>
             </li>
             <li class="elements__element">
                 <img class="elements__image" src="./images/element_karachaevo.png" alt="Карачаево-Черкесия">
                 <div class="elements__rectangle">
-                    <p class="elements__name">Карачаево-Ч...</p>
-                    <div class="elements__like"></div>
+                    <h1 class="elements__name">Карачаево-Ч...</h1>
+                    <button class="elements__like" type="button" aria-label="Like"></button>
                 </div>
             </li>
             <li class="elements__element">
                 <img class="elements__image" src="./images/element_dombai.png" alt="Домбай">
                 <div class="elements__rectangle">
-                    <p class="elements__name">Домбай</p>
-                    <div class="elements__like"></div>
+                    <h1 class="elements__name">Домбай</h1>
+                    <button class="elements__like" type="button" aria-label="Like"></button>
                 </div>
             </li>
             <li class="elements__element">
               <img class="elements__image" src="./images/element_elbrus.png" alt="Эльбрус">
               <div class="elements__rectangle">
-                  <p class="elements__name">Гора Эльбрус</p>
-                  <div class="elements__like"></div>
+                  <h1 class="elements__name">Гора Эльбрус</h1>
+                  <button class="elements__like" type="button" aria-label="Like"></button>
               </div>
           </li>
           <li class="elements__element">
               <img class="elements__image" src="./images/element_karachaevo.png" alt="Карачаево-Черкесия">
               <div class="elements__rectangle">
-                  <p class="elements__name">Карачаево-Ч...</p>
-                  <div class="elements__like"></div>
+                  <h1 class="elements__name">Карачаево-Ч...</h1>
+                  <button class="elements__like" type="button" aria-label="Like"></button>
               </div>
           </li>
             
@@ -94,6 +92,6 @@
     </footer>
 
     </div>
-    <script src="./script.js"></script>
+    <script src="./index.js"></script>
 </body>
 </html>

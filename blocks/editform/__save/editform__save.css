@@ -4,10 +4,11 @@
     background-image: url(../../../images/save_button.svg);
     transition: opacity 0.3s linear;
     margin: 0 36px 37px;
+    border-radius: 2px;
 }
 
 .editform__save:hover{
-    opacity: 0.6;
+    opacity: 0.8;
     cursor: pointer;
 }
 

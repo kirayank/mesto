@@ -1,4 +1,6 @@
 .editform{
+    position: relative;
+    align-self: center;
     width: 430px;
     height: 330px;
     margin: auto;
@@ -8,6 +10,7 @@
     border-radius: 10px;
     z-index: 2;
 }
+
 
 @media screen and (max-width: 320px) {
     .editform {

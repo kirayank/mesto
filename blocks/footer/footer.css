@@ -1,13 +1,11 @@
 .footer{
     width: 880px;
-    height: 18px;
     margin: 0;
     padding: 0;
 }
 
 @media screen and (max-width: 320px) {
     .footer {
-        width: 282px;
-        height: 14px;
+        width: 100%;
     }
 }
