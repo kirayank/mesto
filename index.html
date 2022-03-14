@@ -20,20 +20,23 @@
       <section class="profile">
           <div class="profile__avatar"></div>
           <div class="profile__info">
-              <h1 class="profile__name">Жак-Ив Кусто</h1>
+              <h1 class="profile__name" id="popup__profile_name">Жак-Ив Кусто</h1>
               <button class="profile__editbutton" type="button" aria-label="Edit"></button>
-              <div class="profile__container">
-                <button class="editform__exit" type="button" aria-label="Close"></button>
-                <form class="editform">
-                    <h1 class="editform__heading">Редактировать профиль</h1>
-                        <input type="text" class="editform__name" autocomplete="on" value="Жак-Ив Кусто">
-                        <input type="text" class="editform__about" autocomplete="on" value="Исследователь океана">
-                    <button class="editform__save" type="submit" aria-label="Save"></button>
-                </form> 
-              </div>
-              <p class="profile__about">Исследователь океана</p>
+              <p class="profile__about" id="popup__profile_about">Исследователь океана</p>
           </div>
-          <div class="profile__addbutton"></div>        
+          <button class="profile__addbutton" type="button" aria-label="Add"></button>        
+      </section>
+
+      <section class="popup">
+        <div class="popup__container">
+            <button class="popup__exit" type="button" aria-label="Close"></button>
+            <form class="popup__editform" name="editform">
+                <h1 class="popup__heading">Редактировать профиль</h1>
+                    <input type="text" class="popup__input" id="popup__input_name" autocomplete="on" value="">
+                    <input type="text" class="popup__input" id="popup__input_about" autocomplete="on" value="">
+                <button class="popup__save" type="submit" aria-label="Save"></button>
+            </form> 
+          </div>
       </section>
 
       <section class="elements">
@@ -55,7 +58,7 @@
             <li class="elements__element">
                 <img class="elements__image" src="./images/element_karachaevo.png" alt="Карачаево-Черкесия">
                 <div class="elements__rectangle">
-                    <h1 class="elements__name">Карачаево-Ч...</h1>
+                    <h1 class="elements__name">Карачаево-Черкесия</h1>
                     <button class="elements__like" type="button" aria-label="Like"></button>
                 </div>
             </li>
@@ -76,7 +79,7 @@
           <li class="elements__element">
               <img class="elements__image" src="./images/element_karachaevo.png" alt="Карачаево-Черкесия">
               <div class="elements__rectangle">
-                  <h1 class="elements__name">Карачаево-Ч...</h1>
+                  <h1 class="elements__name">Карачаево-Черкесия</h1>
                   <button class="elements__like" type="button" aria-label="Like"></button>
               </div>
           </li>

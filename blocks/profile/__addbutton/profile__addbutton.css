@@ -3,6 +3,8 @@
     height: 50px;
     background-image: url(../../../images/profile__add_button.svg);
     transition: opacity 0.3s linear;
+    background-color: transparent;
+    border: none;
 }
 
 .profile__addbutton:hover{

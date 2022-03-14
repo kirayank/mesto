@@ -1,15 +1,15 @@
-.profile__container{
+.popup__container{
     display: none;
     animation-duration: 1.5s;
     animation-fill-mode: both;
     animation-name: fadeIn;
     position: absolute;
-    left: 425px;
+    left: 510px;
     top: 195px;
     z-index: 2;
 }
 
-.profile__container::before{
+.popup__container::before{
     background-color: black;
     opacity: 0.5;
     content: "";
@@ -21,13 +21,7 @@
     z-index: 0;
 }
 
-.profile__container.open{
-    display: block;
-}
 
-.profile__container.close{
-    display: none;
-}
 
 @keyframes fadeIn {
     from {
@@ -39,7 +33,7 @@
   }
 
   @media screen and (max-width: 320px) {
-    .profile__container {
+    .popup__container {
         left: 0;
         top: 0;
     }

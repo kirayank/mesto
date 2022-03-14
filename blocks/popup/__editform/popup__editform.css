@@ -1,4 +1,4 @@
-.editform{
+.popup__editform{
     position: relative;
     align-self: center;
     width: 430px;
@@ -13,7 +13,7 @@
 
 
 @media screen and (max-width: 320px) {
-    .editform {
+    .popup__editform {
         width: 282px;
         height: 322px;
         margin: 123px 19px;

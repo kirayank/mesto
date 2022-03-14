@@ -1,4 +1,4 @@
-.editform__heading{
+.popup__heading{
     width: 330px;
     height: 23px;
     font-style: normal;
@@ -10,7 +10,7 @@
 }
 
 @media screen and (max-width: 320px) {
-    .editform__heading {
+    .popup__heading {
         min-width: 238px;
         height: 22px;
         font-size: 18px;

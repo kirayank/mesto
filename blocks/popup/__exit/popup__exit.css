@@ -1,4 +1,4 @@
-.editform__exit{
+.popup__exit{
     position: relative;
     background-color: transparent;
     border: none;
@@ -11,13 +11,13 @@
     z-index: 2;
 }
 
-.exeditform__exit:hover{
+.popup__exit:hover{
     opacity: 0.6;
     cursor: pointer;
 }
 
 @media screen and (max-width: 320px) {
-    .editform__exit {
+    .popup__exit {
         position: absolute;
         width: 20px;
         height: 20px;

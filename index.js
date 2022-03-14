@@ -1,30 +1,40 @@
 const editbutton = document.querySelector('.profile__editbutton');
-const form = document.querySelector('.profile__container');
-
-editbutton.addEventListener('click', () => {
-  form.classList.add('open');
-});
-
-const exitbutton = document.querySelector('.editform__exit');
-exitbutton.addEventListener('click', () => {
-    form.classList.add('close');
-  });
+const form = document.querySelector('.popup__container');
+const exitbutton = document.querySelector('.popup__exit');
+const savebutton = document.querySelector('.popup__save');
+let nameInput = document.querySelector('#popup__input_name'); 
+let jobInput = document.querySelector('#popup__input_about');
+let nameProfile = document.getElementById('popup__profile_name'); //получила значение всей строки (что написано в заголовке)
+let aboutProfile = document.getElementById('popup__profile_about');
 
 
-let nameInput = document.querySelector('.editform__name'); // Воспользуйтесь инструментом .querySelector()
-let jobInput = document.querySelector('.editform__about');// Воспользуйтесь инструментом .querySelector()
-
-function formSubmitHandler (evt) {
-    evt.preventDefault(); // Эта строчка отменяет стандартную отправку форм
-    nameInput.getAttribute('value');
-    jobInput.getAttribute('value'); // Получите значение полей jobInput и nameInput из свойства value
-
-    // Выберите элементы, куда должны быть вставлены значения полей
-
-    // Вставьте новые значения с помощью textContent
+function formOpen () {
+  form.classList.add('popup__container_opened');
+  nameInput.setAttribute('value', nameProfile.textContent); //присвоила значению инпута значение тега
+  jobInput.setAttribute('value', aboutProfile.textContent);
 }
 
-// Прикрепляем обработчик к форме:
-// он будет следить за событием “submit” - «отправка»
-formElement.addEventListener('submit', formSubmitHandler);
+function formClose () {
+  form.classList.remove('popup__container_opened');
+}
+
+function formSubmitHandler (evt) {
+  evt.preventDefault(); // Эта строчка отменяет стандартную отправку форм
+  let name = nameInput.getAttribute('value');
+  let job = jobInput.getAttribute('value'); 
+  nameProfile.textContent = name;
+  aboutProfile.textContent = job;
+  formClose();
+}
+
+
+editbutton.addEventListener('click', formOpen);
+exitbutton.addEventListener('click', formClose);
+savebutton.addEventListener('submit', formSubmitHandler);
+
+
+
+
+
+
 
