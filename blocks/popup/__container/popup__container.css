@@ -1,15 +1,13 @@
 .popup__container{
-    display: none;
+    display: block;
+    position: relative;
     animation-duration: 1.5s;
     animation-fill-mode: both;
     animation-name: fadeIn;
-    position: absolute;
-    left: 510px;
-    top: 195px;
     z-index: 2;
 }
 
-.popup__container::before{
+/*.popup__container::before{
     background-color: black;
     opacity: 0.5;
     content: "";
@@ -19,7 +17,7 @@
     width: 1280px;
     height: 720px;
     z-index: 0;
-}
+}*/
 
 
 
@@ -32,9 +30,9 @@
     }
   }
 
-  @media screen and (max-width: 320px) {
+/*@media screen and (max-width: 320px) {
     .popup__container {
         left: 0;
         top: 0;
     }
-}
+}*/

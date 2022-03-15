@@ -1,14 +1,20 @@
 .elements{
     min-width: 880px;
-    min-height: 774px;
     margin: 50px auto 66px;
     padding: 0;
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 880px) {
+    .elements {
+        min-width: 581px;
+        margin: 50px auto 66px;
+    }
+}
+
+@media screen and (max-width: 580px) {
     .elements {
         min-width: 282px;
-        min-height: 2268px;
         margin: 36px 19px 48px;
     }
 }
+

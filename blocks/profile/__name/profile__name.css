@@ -10,6 +10,18 @@
     padding: 0;
 }
 
+@media screen and (max-width: 879px) {
+    .profile__name {
+        width: fit-content;
+        margin-right: 10px;
+        /*margin-left: 100px;
+        margin-bottom: 0;*/
+        align-self: center;
+        font-size: 27px;
+        line-height: 33px;
+    }
+}
+
 @media screen and (max-width: 320px) {
     .profile__name {
         width: 189px;

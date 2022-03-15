@@ -9,7 +9,7 @@
     line-height: 22px;
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 879px) {
     .profile__about {
         width: 282px;
         text-align: center;

@@ -5,6 +5,7 @@
     transition: opacity 0.3s linear;
     background-color: transparent;
     border: none;
+    align-self: center;
 }
 
 .profile__editbutton:hover{

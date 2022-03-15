@@ -1,12 +1,18 @@
 .profile__info{
-    width: 340px;
+    width: 400px;
     display: flex;
     flex-wrap: wrap;
-    margin-right: 244px;
+    margin-right: 165px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 10px;
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 879px) {
     .profile__info {
+        justify-content: center;
+        align-items: center;
         width: 282px;
         height: 54px;
         margin: 26px 19px 36px;
