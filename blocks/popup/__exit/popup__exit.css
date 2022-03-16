@@ -9,6 +9,9 @@
     margin-right: 0;
     margin-left: 470px;
     z-index: 2;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
 
 .popup__exit:hover{
