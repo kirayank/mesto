@@ -16,7 +16,7 @@
     .popup__save {
         width: 238px;
         height: 46px;
-        margin: 0 22px 25px;
+        margin: 28px 22px 25px;
         background-image: url(../../../images/save_button_mobile.svg);
     }
 }

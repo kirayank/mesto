@@ -1,5 +1,5 @@
 .profile__name{
-    width: fit-content;
+    width: 294px;
     font-family: 'Inter';
     font-style: normal;
     font-weight: 500;
@@ -8,11 +8,14 @@
     margin: 0;
     margin-right: 18px;
     padding: 0;
+    text-overflow: ellipsis; 
+    overflow: hidden; 
+    white-space: nowrap;
 }
 
 @media screen and (max-width: 879px) {
     .profile__name {
-        width: fit-content;
+        width: 200px;
         margin-right: 10px;
         /*margin-left: 100px;
         margin-bottom: 0;*/
@@ -25,7 +28,7 @@
 @media screen and (max-width: 320px) {
     .profile__name {
         width: 189px;
-        margin-left: 40px;
+        margin-left: 0;
         margin-right: 10px;
         margin-bottom: 0;
         font-size: 27px;
