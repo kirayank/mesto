@@ -39,6 +39,18 @@
           </div>
       </section>
 
+      <section class="popup">
+        <div class="popup__container">
+            <button class="popup__exit" id="popup__exit_addform" type="button" aria-label="Close"></button>
+            <form class="popup__addform" name="addform">
+                <h2 class="popup__heading">Новое место</h2>
+                    <input type="text" class="popup__input" id="popup__input_title" autocomplete="on" value="Название">
+                    <input type="text" class="popup__input" id="popup__input_link" autocomplete="on" value="Ссылка на картинку">
+                <button class="popup__save" type="submit" aria-label="Save"></button>
+            </form> 
+          </div>
+      </section>
+
       <section class="elements">
           <ul class="elements__list"></ul>
       </section>
@@ -53,6 +65,7 @@
 
     <template id="element-template">
         <li class="elements__element">
+            <button class ="elements__trash" type="button" aria-label="Trash"></button>
             <img class="elements__image">
             <div class="elements__rectangle">
                 <h3 class="elements__name"></h3>

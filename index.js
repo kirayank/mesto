@@ -2,7 +2,10 @@ const editbutton = document.querySelector('.profile__editbutton');
 /*const form = document.querySelector('.popup__container');*/
 const popup = document.querySelector('.popup');
 const exitbutton = document.querySelector('.popup__exit');
+const exitbutton_addForm = document.querySelector('#popup__exit_addform');
+const addbutton = document.querySelector('.profile__addbutton');
 const form = document.querySelector('.popup__editform');
+const addform = document.querySelector('.popup__addform');
 let nameInput = document.querySelector('#popup__input_name'); 
 let jobInput = document.querySelector('#popup__input_about');
 let nameProfile = document.getElementById('popup__profile_name'); //получила значение всей строки (что написано в заголовке)
@@ -75,11 +78,28 @@ function formSubmitHandler (evt) {
   closeForm();
 }
 
-initialCards.forEach(renderPicture);//вызываем для каждого объекта массива функцию создания карточки
 
+function openAddForm(){
+  let add_container = addform.parentElement;
+  let add_popup = add_container.parentElement;
+  add_popup.classList.add('popup_opened');
+}
+
+function closeAddForm(){
+  let add_container = addform.parentElement;
+  let add_popup = add_container.parentElement;
+  add_popup.classList.remove('popup_opened');
+}
+
+
+
+addbutton.addEventListener('click', openAddForm);
 editbutton.addEventListener('click', openForm);
 exitbutton.addEventListener('click', closeForm);
+exitbutton_addForm.addEventListener('click', closeAddForm);
 form.addEventListener('submit', formSubmitHandler);
+
+initialCards.forEach(renderPicture);//вызываем для каждого объекта массива функцию создания карточки
 
 
 
