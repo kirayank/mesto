@@ -7,6 +7,51 @@ let nameInput = document.querySelector('#popup__input_name');
 let jobInput = document.querySelector('#popup__input_about');
 let nameProfile = document.getElementById('popup__profile_name'); //получила значение всей строки (что написано в заголовке)
 let aboutProfile = document.getElementById('popup__profile_about');
+const elementsContainer = document.querySelector('.elements__list');//обращение в списку картиночек
+
+//массив картиночек
+const initialCards = [
+  {
+    name: 'Архыз',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
+  },
+  {
+    name: 'Челябинская область',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
+  },
+  {
+    name: 'Иваново',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
+  },
+  {
+    name: 'Камчатка',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
+  },
+  {
+    name: 'Холмогорский район',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
+  },
+  {
+    name: 'Байкал',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
+  }
+];
+
+function pagePictures (item){
+    const elementTemplate = document.querySelector('#element-template').content;
+    const pictureElement = elementTemplate.querySelector('.elements__element').cloneNode(true);
+
+    pictureElement.querySelector('.elements__image').src = item.link; //вставим картиночку
+    pictureElement.querySelector('.elements__name').textContent = item.name; //вставим имя в заголовок
+
+    return pictureElement;
+    
+}
+
+function renderPicture (item){
+  const pictureElement = pagePictures(item);
+  elementsContainer.append(pictureElement); //вставляем карточку
+}
 
 
 function openForm () {
@@ -30,6 +75,7 @@ function formSubmitHandler (evt) {
   closeForm();
 }
 
+initialCards.forEach(renderPicture);//вызываем для каждого объекта массива функцию создания карточки
 
 editbutton.addEventListener('click', openForm);
 exitbutton.addEventListener('click', closeForm);
