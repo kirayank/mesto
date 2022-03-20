@@ -35,7 +35,7 @@
 @import url(../blocks/popup/_opened/popup_opened.css);
 @import url(../blocks/popup/__addform/popup__addform.css);
 @import url(../blocks/popup/__picture/popup__picture.css);
-@import url(../blocks/popup/__picture/_name/popup__picture_name.css);
+@import url(../blocks/popup/__name/popup__name.css);
 
 
 /*шрифт*/

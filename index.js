@@ -66,7 +66,7 @@ function renderPicture (item){
   pictureElement.addEventListener('click', function(){
     console.log('я нажался');
     const bigPicture = pictureElement.querySelector('.popup__picture');
-    let bigTitle = pictureElement.querySelector('.popup__picture_name');
+    let bigTitle = pictureElement.querySelector('.popup__name');
     bigPicture.src = item.link;
     bigTitle.textContent = item.textContent;
   })
