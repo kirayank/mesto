@@ -15,3 +15,10 @@
     cursor: pointer;
 }
 
+.elements__like:active{
+    opacity: 1;
+}
+
+.elements__like:focus{
+    opacity: 1;
+}

@@ -12,6 +12,11 @@ let nameProfile = document.getElementById('popup__profile_name'); //получи
 let aboutProfile = document.getElementById('popup__profile_about');
 const elementsContainer = document.querySelector('.elements__list');//обращение в списку картиночек
 
+let titleInput = document.querySelector('#popup__input_title'); //поле названия картинки
+let linkInput = document.querySelector('#popup__input_link'); //поле с ссылкой на картинку
+
+
+
 //массив картиночек
 const initialCards = [
   {
@@ -40,14 +45,16 @@ const initialCards = [
   }
 ];
 
+
+
 function pagePictures (item){
-    const elementTemplate = document.querySelector('#element-template').content;
-    const pictureElement = elementTemplate.querySelector('.elements__element').cloneNode(true);
+    
+  const elementTemplate = document.querySelector('#element-template').content;
+  const pictureElement = elementTemplate.querySelector('.elements__element').cloneNode(true);
+  pictureElement.querySelector('.elements__image').src = item.link; //вставим картиночку
+  pictureElement.querySelector('.elements__name').textContent = item.name; //вставим имя в заголовок
 
-    pictureElement.querySelector('.elements__image').src = item.link; //вставим картиночку
-    pictureElement.querySelector('.elements__name').textContent = item.name; //вставим имя в заголовок
-
-    return pictureElement;
+  return pictureElement;
     
 }
 
@@ -55,6 +62,12 @@ function renderPicture (item){
   const pictureElement = pagePictures(item);
   elementsContainer.append(pictureElement); //вставляем карточку
 }
+
+/*function renderDelete (item){
+  //const pictureElement = pagePictures(item);
+  elementsContainer.splice(item, 1);
+  //pictureElement.remove();
+}*/
 
 
 function openForm () {
@@ -73,8 +86,8 @@ function closeForm () {
 
 function formSubmitHandler (evt) {
   evt.preventDefault(); // Эта строчка отменяет стандартную отправку форм
-  nameProfile.textContent = nameInput.value;
-  aboutProfile.textContent = jobInput.value;
+  nameProfile.textContent = titleInput.value;
+  aboutProfile.textContent = linkInput.value;
   closeForm();
 }
 
@@ -91,6 +104,32 @@ function closeAddForm(){
   add_popup.classList.remove('popup_opened');
 }
 
+function addPicture(evt){
+  evt.preventDefault(); // Эта строчка отменяет стандартную отправку форм
+  const elementTemplate = document.querySelector('#element-template').content;
+  const pictureElement = elementTemplate.querySelector('.elements__element').cloneNode(true);
+  pictureElement.querySelector('.elements__name').textContent = titleInput.value;
+  pictureElement.querySelector('.elements__image').src = linkInput.value;
+  elementsContainer.prepend(pictureElement);
+  closeAddForm();
+}
+
+/*function likeActive(){
+  likeButton.classList.add('elements__like_active');
+}*/
+
+function like(){
+  if (likeButton.classList.contains('elements__like_active') === true){
+    likeButton.classList.remove('elements__like_active');
+  }
+  else {
+    likeButton.classList.add('elements__like_active');
+  }
+  
+}
+
+
+
 
 
 addbutton.addEventListener('click', openAddForm);
@@ -98,8 +137,18 @@ editbutton.addEventListener('click', openForm);
 exitbutton.addEventListener('click', closeForm);
 exitbutton_addForm.addEventListener('click', closeAddForm);
 form.addEventListener('submit', formSubmitHandler);
+addform.addEventListener('submit', addPicture);
+
 
 initialCards.forEach(renderPicture);//вызываем для каждого объекта массива функцию создания карточки
+let likeButton = document.querySelector('.elements__like');
+likeButton.addEventListener('click', like);
+const deleteButton = document.querySelector('.elements__trash');
+//deleteButton.addEventListener('click', renderDelete);
+deleteButton.addEventListener('click', function (){
+  const pictureElement = document.querySelector('.elements__element');
+  pictureElement.remove();
+});
 
 
 
