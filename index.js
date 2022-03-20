@@ -61,6 +61,15 @@ function pagePictures (item){
 function renderPicture (item){
   const pictureElement = pagePictures(item);
   elementsContainer.append(pictureElement); //вставляем карточку
+
+  //открытие попапа
+  pictureElement.addEventListener('click', function(){
+    console.log('я нажался');
+    const bigPicture = pictureElement.querySelector('.popup__picture');
+    let bigTitle = pictureElement.querySelector('.popup__picture_name');
+    bigPicture.src = item.link;
+    bigTitle.textContent = item.textContent;
+  })
 }
 
 /*function renderDelete (item){
@@ -113,6 +122,7 @@ function addPicture(evt){
   elementsContainer.prepend(pictureElement);
   closeAddForm();
 }
+
 
 /*function likeActive(){
   likeButton.classList.add('elements__like_active');
