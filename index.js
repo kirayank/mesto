@@ -17,6 +17,8 @@ let linkInput = document.querySelector('#popup__input_link'); //поле с сс
 
 
 
+
+
 //массив картиночек
 const initialCards = [
   {
@@ -47,7 +49,7 @@ const initialCards = [
 
 
 
-function pagePictures (item){
+function loadPictures (item){
     
   const elementTemplate = document.querySelector('#element-template').content;
   const pictureElement = elementTemplate.querySelector('.elements__element').cloneNode(true);
@@ -59,37 +61,38 @@ function pagePictures (item){
 }
 
 function renderPicture (item){
-  const pictureElement = pagePictures(item);
+  const pictureElement = loadPictures(item);
   elementsContainer.append(pictureElement); //вставляем карточку
 
+  
   //открытие попапа
-  pictureElement.addEventListener('click', function(){
+  /*pictureElement.addEventListener('click', function(){
     console.log('я нажался');
     const bigPicture = pictureElement.querySelector('.popup__picture');
     let bigTitle = pictureElement.querySelector('.popup__name');
     bigPicture.src = item.link;
     bigTitle.textContent = item.textContent;
-  })
+  })*/
 }
 
-/*function renderDelete (item){
-  //const pictureElement = pagePictures(item);
-  elementsContainer.splice(item, 1);
-  //pictureElement.remove();
-}*/
+function deletePicture () {
+  const deleteButtons = document.querySelectorAll('.elements__trash');
+  for (let i=0; i<deleteButtons.length; i++){
+    let deleteButton = deleteButtons[i];
+    deleteButton.addEventListener('click', function (evt){
+      evt.target.closest('.elements__element').remove();
+    });
+  } 
+}
 
 
 function openForm () {
-  /*form.classList.add('popup__container_opened');*/
-  /*nameInput.setAttribute('value', nameProfile.textContent); //присвоила значению инпута значение тега
-  jobInput.setAttribute('value', aboutProfile.textContent);*/
   nameInput.value = nameProfile.textContent; //присвоила значению инпута значение тега
   jobInput.value = aboutProfile.textContent;
   popup.classList.add('popup_opened');
 }
 
 function closeForm () {
-  /*form.classList.remove('popup__container_opened');*/
   popup.classList.remove('popup_opened');
 }
 
@@ -124,19 +127,21 @@ function addPicture(evt){
 }
 
 
-/*function likeActive(){
-  likeButton.classList.add('elements__like_active');
-}*/
-
-function like(){
-  if (likeButton.classList.contains('elements__like_active') === true){
-    likeButton.classList.remove('elements__like_active');
+function likePicture(){
+  const likeButtons = document.querySelectorAll('.elements__like');
+  for (i=0; i<likeButtons.length; i++){
+    let likeButton = likeButtons[i];
+    likeButton.addEventListener('click', function(){
+      if (likeButton.classList.contains('elements__like_active') === true){
+        likeButton.classList.remove('elements__like_active');
+      }
+      else {
+        likeButton.classList.add('elements__like_active');
+      }
+    });
   }
-  else {
-    likeButton.classList.add('elements__like_active');
-  }
-  
 }
+
 
 
 
@@ -151,14 +156,12 @@ addform.addEventListener('submit', addPicture);
 
 
 initialCards.forEach(renderPicture);//вызываем для каждого объекта массива функцию создания карточки
-let likeButton = document.querySelector('.elements__like');
-likeButton.addEventListener('click', like);
-const deleteButton = document.querySelector('.elements__trash');
-//deleteButton.addEventListener('click', renderDelete);
-deleteButton.addEventListener('click', function (){
-  const pictureElement = document.querySelector('.elements__element');
-  pictureElement.remove();
-});
+
+
+deletePicture();
+likePicture()
+
+
 
 
 
