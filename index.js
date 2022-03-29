@@ -98,8 +98,8 @@ function closeForm () {
 
 function formSubmitHandler (evt) {
   evt.preventDefault(); // Эта строчка отменяет стандартную отправку форм
-  nameProfile.textContent = titleInput.value;
-  aboutProfile.textContent = linkInput.value;
+  nameProfile.textContent = nameInput.value; //titleInput.value;
+  aboutProfile.textContent = jobInput.value; //linkInput.value;
   closeForm();
 }
 
