@@ -19,7 +19,7 @@ const popupImage = document.querySelector('.popup__picture');
 const popupImageTitle = document.querySelector('.popup__name');
 
 const popups = document.querySelectorAll('.popup');
-const popupOpenImage = document.querySelector('.popup__image');
+const popupOpenImage = document.querySelector('.popup_type_image');
 
 const exitbuttonPopup = document.querySelector('#popup__exit_picture');
 
@@ -79,14 +79,40 @@ function loadPictures (item){
   });
 
   exitbuttonPopup.addEventListener('click', function (){
-    popupOpenImage.classList.remove('popup_opened');
+    //popupOpenImage.classList.remove('popup_opened');
+    closePopup(popupOpenImage);
   })
+
+  addform.addEventListener('submit', function (evt) {
+    evt.preventDefault();
+    loadPictureName.textContent = titleInput.value;
+    loadPicture.src = linkInput.value;
+    elementsContainer.prepend(pictureElement);
+    closeAddForm();
+  });
+  
+  
+  /*function addPicture(evt){
+    evt.preventDefault(); // Эта строчка отменяет стандартную отправку форм
+    /*const elementTemplate = document.querySelector('#element-template').content;
+    const pictureElement = elementTemplate.querySelector('.elements__element').cloneNode(true);
+    pictureElement.querySelector('.elements__name').textContent = titleInput.value;
+    pictureElement.querySelector('.elements__image').src = linkInput.value;
+    const pictureElement = loadPictures();
+    elementsContainer.prepend(pictureElement);
+    closeAddForm();
+  }*/
+
   return pictureElement;
     
 }
 
 function openPopup(popups) {
   popups.classList.add('popup_opened');
+}
+
+function closePopup(popups) {
+  popups.classList.remove('popup_opened');
 }
 
 
@@ -110,14 +136,14 @@ function deletePicture () {
 function openForm () {
   nameInput.value = nameProfile.textContent; //присвоила значению инпута значение тега
   jobInput.value = aboutProfile.textContent;
-  popup.classList.add('popup_opened');
+  openPopup(popup);
 }
 
 function closeForm () {
-  popup.classList.remove('popup_opened');
+  closePopup(popup);
 }
 
-function formSubmitHandler (evt) {
+function submitHandlerForm (evt) {
   evt.preventDefault(); // Эта строчка отменяет стандартную отправку форм
   nameProfile.textContent = nameInput.value; //titleInput.value;
   aboutProfile.textContent = jobInput.value; //linkInput.value;
@@ -128,24 +154,16 @@ function formSubmitHandler (evt) {
 function openAddForm(){
   let add_container = addform.parentElement;
   let add_popup = add_container.parentElement;
-  add_popup.classList.add('popup_opened');
+  openPopup(add_popup);
 }
 
 function closeAddForm(){
   let add_container = addform.parentElement;
   let add_popup = add_container.parentElement;
-  add_popup.classList.remove('popup_opened');
+  closePopup(add_popup);
 }
 
-function addPicture(evt){
-  evt.preventDefault(); // Эта строчка отменяет стандартную отправку форм
-  const elementTemplate = document.querySelector('#element-template').content;
-  const pictureElement = elementTemplate.querySelector('.elements__element').cloneNode(true);
-  pictureElement.querySelector('.elements__name').textContent = titleInput.value;
-  pictureElement.querySelector('.elements__image').src = linkInput.value;
-  elementsContainer.prepend(pictureElement);
-  closeAddForm();
-}
+
 
 
 function likePicture(){
@@ -185,8 +203,8 @@ addbutton.addEventListener('click', openAddForm);
 editbutton.addEventListener('click', openForm);
 exitbutton.addEventListener('click', closeForm);
 exitbutton_addForm.addEventListener('click', closeAddForm);
-form.addEventListener('submit', formSubmitHandler);
-addform.addEventListener('submit', addPicture);
+form.addEventListener('submit', submitHandlerForm);
+
 
 
 initialCards.forEach(renderPicture);//вызываем для каждого объекта массива функцию создания карточки
