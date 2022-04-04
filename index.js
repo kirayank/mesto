@@ -15,6 +15,14 @@ const elementsContainer = document.querySelector('.elements__list');//обращ
 let titleInput = document.querySelector('#popup__input_title'); //поле названия картинки
 let linkInput = document.querySelector('#popup__input_link'); //поле с ссылкой на картинку
 
+const popupImage = document.querySelector('.popup__picture');
+const popupImageTitle = document.querySelector('.popup__name');
+
+const popups = document.querySelectorAll('.popup');
+const popupOpenImage = document.querySelector('.popup__image');
+
+const exitbuttonPopup = document.querySelector('#popup__exit_picture');
+
 
 
 
@@ -49,30 +57,43 @@ const initialCards = [
 
 
 
+
+
 function loadPictures (item){
     
   const elementTemplate = document.querySelector('#element-template').content;
   const pictureElement = elementTemplate.querySelector('.elements__element').cloneNode(true);
-  pictureElement.querySelector('.elements__image').src = item.link; //вставим картиночку
-  pictureElement.querySelector('.elements__name').textContent = item.name; //вставим имя в заголовок
 
+  const loadPicture = pictureElement.querySelector('.elements__image');
+  const loadPictureName = pictureElement.querySelector('.elements__name');
+
+  loadPicture.src = item.link; //вставим картиночку
+  loadPictureName.textContent = item.name; //вставим имя в заголовок
+
+  
+  // на клик откроем карточку
+  loadPicture.addEventListener('click', function (loadPicture) {
+    popupImage.src = item.link;
+    popupImageTitle.textContent = item.name;
+    openPopup(popupOpenImage);
+  });
+
+  exitbuttonPopup.addEventListener('click', function (){
+    popupOpenImage.classList.remove('popup_opened');
+  })
   return pictureElement;
     
 }
+
+function openPopup(popups) {
+  popups.classList.add('popup_opened');
+}
+
 
 function renderPicture (item){
   const pictureElement = loadPictures(item);
   elementsContainer.append(pictureElement); //вставляем карточку
 
-  
-  //открытие попапа
-  /*pictureElement.addEventListener('click', function(){
-    console.log('я нажался');
-    const bigPicture = pictureElement.querySelector('.popup__picture');
-    let bigTitle = pictureElement.querySelector('.popup__name');
-    bigPicture.src = item.link;
-    bigTitle.textContent = item.textContent;
-  })*/
 }
 
 function deletePicture () {
@@ -142,6 +163,19 @@ function likePicture(){
   }
 }
 
+/*function openPicture(){
+  const bigPictures = document.querySelectorAll('.popup__picture'); //делаем массив из картинок
+  for (i=0; i<bigPictures.length; i++){
+    pictureElement.addEventListener('click', function(item){
+      console.log('я нажался');
+      const bigPicture = pictureElement.querySelector('.popup__picture');
+      let bigTitle = pictureElement.querySelector('.popup__name');
+      bigPicture.src = item.link;
+      bigTitle.textContent = item.textContent;
+  })
+}
+}*/
+
 
 
 
@@ -159,7 +193,8 @@ initialCards.forEach(renderPicture);//вызываем для каждого о�
 
 
 deletePicture();
-likePicture()
+likePicture();
+
 
 
 
