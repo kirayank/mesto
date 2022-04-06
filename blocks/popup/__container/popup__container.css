@@ -1,9 +1,9 @@
 .popup__container{
     display: block;
     position: relative;
-    animation-duration: 1.5s;
+    /*animation-duration: 1.5s;
     animation-fill-mode: both;
-    animation-name: fadeIn;
+    animation-name: fadeIn;*/
     z-index: 2;
 }
 
@@ -21,7 +21,7 @@
 
 
 
-@keyframes fadeIn {
+/*@keyframes fadeIn {
     from {
       opacity: 0;
     }

@@ -80,9 +80,6 @@ function createCard (item){
     openPopup(popupOpenImage);
   });
 
-  buttonExitPopup.addEventListener('click', function (){
-    closePopup(popupOpenImage);
-  })
 
   pictureElement.querySelector('.elements__trash').addEventListener('click', function (evt) {
     evt.target.closest('.elements__element').remove();
@@ -142,7 +139,7 @@ function closeAddForm(){
 addform.addEventListener('submit', function (evt) {
   evt.preventDefault();
   elementsContainer.prepend(createCard({link: linkInput.value, name: titleInput.value}));
-  closeAddForm();
+  closePopup(popupOpenAddForm);
 });
 
 
@@ -151,6 +148,9 @@ buttonEdit.addEventListener('click', openEditUserForm);
 buttonExit.addEventListener('click', closeForm);
 buttonExitAddForm.addEventListener('click', closeAddForm);
 form.addEventListener('submit', handleSubmitEditForm);
+buttonExitPopup.addEventListener('click', function (){
+  closePopup(popupOpenImage);
+})
 
 
 
