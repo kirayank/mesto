@@ -1,0 +1,7 @@
+.popup__input_type_error{
+    border: solid 1px blue;
+}
+
+#popup__input_name-error{
+    color:violet;
+}
