@@ -1,6 +1,8 @@
 function enableValidation () {
   form.addEventListener('submit', handlerFormSubmit);
   form.addEventListener('input', handlerFormInput);
+  addform.addEventListener('submit', handlerFormSubmit);
+  addform.addEventListener('input', handlerFormInput);
 }
 
 function handlerFormSubmit(evt) {
@@ -20,11 +22,13 @@ function handlerFormInput(evt) {
   //2. Показать ошибки пользователям
   setFieldError(input);
   //3. Деактивировать кнопку на невалидной форме
-
+  setSubmitButtonState(form);
 }
 
 function setCustomError(input) {
   const validity = input.validity;
+
+  input.setCustomValidity('');
 
   if (validity.tooShort || validity.tooLong){
     const currentLength = input.value.length;
@@ -41,6 +45,22 @@ function setCustomError(input) {
 function setFieldError(input) {
   const span = document.querySelector(`#${input.id}-error`);
   span.textContent = input.validationMessage;
+}
+
+function setSubmitButtonState(form){
+  const buttonSave = form.querySelector('.popup__save');
+  const isValid = form.checkValidity();
+
+  if (isValid){
+    buttonSave.classList.add('popup__save_valid');
+    buttonSave.classList.remove('popup__save_invalid');
+    buttonSave.removeAttribute('disabled');
+  }
+  else{
+    buttonSave.classList.remove('popup__save_valid');
+    buttonSave.classList.add('popup__save_invalid');
+    buttonSave.setAttribute('disabled','disabled');
+  }
 }
 
 enableValidation();

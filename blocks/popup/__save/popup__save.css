@@ -1,7 +1,7 @@
 .popup__save{
     width: 358px;
     height: 50px;
-    background-image: url(../../../images/save_button.svg);
+    /*background-image: url(../../../images/save_button.svg);*/
     transition: opacity 0.3s linear;
     margin: 18px 36px 37px;
     border-radius: 2px;
@@ -17,6 +17,6 @@
         width: 238px;
         height: 46px;
         margin: 28px 22px 25px;
-        background-image: url(../../../images/save_button_mobile.svg);
+        /*background-image: url(../../../images/save_button_mobile.svg);*/
     }
 }

@@ -1,0 +1,15 @@
+.popup__save_valid{
+    width: 358px;
+    height: 50px;
+    background-image: url(../../../../images/save_button.svg);
+    border-radius: 2px;
+}
+
+@media screen and (max-width: 514px) {
+    .popup__save_valid {
+        width: 238px;
+        height: 46px;
+        margin: 28px 22px 25px;
+        background-image: url(../../../../images/save_button_mobile.svg);
+    }
+}

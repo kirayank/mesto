@@ -29,6 +29,7 @@ const popupOpenAddForm = document.querySelector('.popup_type_addform');
 
 
 
+
 //массив картиночек
 const initialCards = [
   {
@@ -93,13 +94,25 @@ function createCard (item){
   return pictureElement;
     
 }
-
+function pressEscapeButton(evt) {
+  if(evt.key === "Escape"){
+    console.log('я нажался');
+    closeForm();
+    closeAddForm();}
+ }
 function openPopup(popups) {
   popups.classList.add('popup_opened');
+  document.addEventListener('keydown', pressEscapeButton);
+  /*(evt) => {
+    if(evt.key === "Escape"){
+      console.log('я нажался');
+      closeForm();}
+  }); */
 }
 
 function closePopup(popups) {
   popups.classList.remove('popup_opened');
+  document.removeEventListener('keydown', pressEscapeButton);
 }
 
 
@@ -151,6 +164,9 @@ form.addEventListener('submit', handleSubmitEditForm);
 buttonExitPopup.addEventListener('click', function (){
   closePopup(popupOpenImage);
 })
+popup.addEventListener('click', closeForm);
+
+popup.addEventListener('click', closeAddForm); //пока не закрывается чет
 
 
 

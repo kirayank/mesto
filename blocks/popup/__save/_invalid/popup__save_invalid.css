@@ -1,0 +1,14 @@
+.popup__save_invalid{
+    background-image: url(../../../../images/save_button_invalid.svg);
+}
+
+@media screen and (max-width: 514px) {
+    .popup__save_invalid {
+        width: 238px;
+        height: 46px;
+        margin: 0;
+        margin: 1px 22px 25px;
+        background-image: url(../../../../images/save_button_invalid.svg);
+        background-size: cover;
+    }
+}
