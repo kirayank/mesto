@@ -1,8 +1,8 @@
 function enableValidation () {
-  form.addEventListener('submit', handlerFormSubmit);
-  form.addEventListener('input', handlerFormInput);
-  addform.addEventListener('submit', handlerFormSubmit);
-  addform.addEventListener('input', handlerFormInput);
+  editForm.addEventListener('submit', handlerFormSubmit);
+  editForm.addEventListener('input', handlerFormInput);
+  addForm.addEventListener('submit', handlerFormSubmit);
+  addForm.addEventListener('input', handlerFormInput);
 }
 
 function handlerFormSubmit(evt) {
@@ -10,7 +10,7 @@ function handlerFormSubmit(evt) {
 
   const form = evt.currentTarget;
   const isValid = form.checkValidity();
-  alert(isValid);
+  //alert(isValid);
 }
 
 function handlerFormInput(evt) {
