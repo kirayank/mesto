@@ -35,6 +35,7 @@ function createCard (item){
 
   loadPicture.src = item.link; //вставим картиночку
   loadPictureName.textContent = item.name; //вставим имя в заголовок
+  loadPicture.alt = item.name;
 
   // на клик откроем карточку
   function openCard (){
@@ -60,19 +61,33 @@ function createCard (item){
 }
 
 function pressEscapeButton(evt) {
+  const popupOpened = document.querySelector('.popup_opened');
   if(evt.key === "Escape"){
-    const popupOpened = document.querySelector('.popup_opened');
     closePopup (popupOpened);
     }
  }
+
+function clickOverlay(evt) {
+  const popupOpened = document.querySelector('.popup_opened');
+  if (evt.target.className != 'popup_opened') {
+      closePopup (popupOpened);
+      console.log('нажал мимо формочки');
+  }
+  else {
+    console.log('нажал на формочку');
+  }
+}
+
 function openPopup(popups) {
   popups.classList.add('popup_opened');
   document.addEventListener('keydown', pressEscapeButton);
+  
 }
 
 function closePopup(popups) {
   popups.classList.remove('popup_opened');
   document.removeEventListener('keydown', pressEscapeButton);
+  popups.addEventListener('click', clickOverlay);
 }
 
 
@@ -110,7 +125,6 @@ function closeAddForm(){
 
 function handlerSubmitAddForm (evt) {
   evt.preventDefault();
-  //elementsContainer.prepend(createCard({link: linkInput.value, name: titleInput.value}));
   const newCard = {link: linkInput.value, name: titleInput.value};
   renderPicture(newCard);
   closePopup(popupOpenAddForm);
@@ -126,11 +140,13 @@ buttonExitAddForm.addEventListener('click', closeAddForm);
 editForm.addEventListener('submit', handleSubmitEditForm);
 buttonExitPopup.addEventListener('click', function (){
   closePopup(popupOpenImage);
-})
-popupOpenEditForm.addEventListener('click', closeEditForm);
+});
 
-//popupOpenAddForm.addEventListener('click', closeAddForm); //пока не закрывается чет
-
+/*popupOpenEditForm.addEventListener('click', closeEditForm);
+popupOpenAddForm.addEventListener('click', closeAddForm); 
+popupOpenImage.addEventListener('click', function (){
+  closePopup(popupOpenImage);
+});*/
 
 
 initialCards.forEach(renderPicture);//вызываем для каждого объекта массива функцию создания карточки
