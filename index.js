@@ -26,6 +26,7 @@ const popupOpenAddForm = document.querySelector('.popup_type_addform');
 
 
 
+
 function createCard (item){
     
   const elementTemplate = document.querySelector('#element-template').content;
@@ -67,15 +68,11 @@ function pressEscapeButton(evt) {
     }
  }
 
-function clickOverlay(evt) {
-  const popupOpened = document.querySelector('.popup_opened');
-  if (evt.target.className != 'popup_opened') {
-      closePopup (popupOpened);
-      console.log('нажал мимо формочки');
-  }
-  else {
-    console.log('нажал на формочку');
-  }
+function clickOverlay(popups) {
+  Array.from(popups).forEach(popup => {
+    popup.addEventListener("mousedown", (evt) => {
+    if (evt.target.classList.contains('popup_opened')) { 
+      closePopup(popup); }})})
 }
 
 function openPopup(popups) {
@@ -107,11 +104,18 @@ function closeEditForm () {
   closePopup(popupOpenEditForm);
 }
 
+function disableSubmitButton(popup) {
+  const button = popup.querySelector('.popup__save');
+  button.classList.add('popup__save_invalid');
+  button.disabled = "disabled";
+}
+
 function handleSubmitEditForm (evt) {
   evt.preventDefault(); // Эта строчка отменяет стандартную отправку форм
   nameProfile.textContent = nameInput.value; //titleInput.value;
   aboutProfile.textContent = jobInput.value; //linkInput.value;
   closeEditForm();
+  disableSubmitButton(popupOpenEditForm);
 }
 
 
@@ -128,6 +132,8 @@ function handlerSubmitAddForm (evt) {
   const newCard = {link: linkInput.value, name: titleInput.value};
   renderPicture(newCard);
   closePopup(popupOpenAddForm);
+  evt.target.reset();
+  disableSubmitButton(popupOpenAddForm);
 }
 
 addForm.addEventListener('submit', handlerSubmitAddForm);
@@ -142,11 +148,7 @@ buttonExitPopup.addEventListener('click', function (){
   closePopup(popupOpenImage);
 });
 
-/*popupOpenEditForm.addEventListener('click', closeEditForm);
-popupOpenAddForm.addEventListener('click', closeAddForm); 
-popupOpenImage.addEventListener('click', function (){
-  closePopup(popupOpenImage);
-});*/
+clickOverlay(popups);
 
 
 initialCards.forEach(renderPicture);//вызываем для каждого объекта массива функцию создания карточки
