@@ -33,9 +33,13 @@
             <form class="popup__editform" name="editform" novalidate>
                 <h2 class="popup__heading">Редактировать профиль</h2>
                 <input type="text" class="popup__input" id="popup__input_name" name="name-input" autocomplete="on" value="" minlength="2" maxlength="40" required>
+                <div class="popup__span_position">
                     <span class="popup__span" id="popup__input_name-error"></span>
+                </div>
                 <input type="text" class="popup__input" id="popup__input_about"name="job-input" autocomplete="on" value="" minlength="2" maxlength="200" required>
+                <div class="popup__span_position">
                     <span class="popup__span" id="popup__input_about-error"></span>
+                </div>
                 <button class="popup__save popup__save_valid" type="submit" aria-label="Save"></button>
             </form> 
           </div>
@@ -47,9 +51,13 @@
             <form class="popup__addform" name="addform" novalidate>
                 <h2 class="popup__heading">Новое место</h2>
                 <input type="text" class="popup__input" id="popup__input_title" autocomplete="on" placeholder="Название" minlength="2" maxlength="30" required>
+                <div class="popup__span_position"> 
                     <span class="popup__span" id="popup__input_title-error"></span>
+                </div>
                 <input type="url" class="popup__input" id="popup__input_link" autocomplete="on" placeholder="Ссылка на картинку" required>
-                    <span class="popup__span" id="popup__input_link-error"></span>
+                <div class="popup__span_position">
+                    <span class="popup__span" id="popup__inSput_link-error"></span>
+                </div>
                 <button class="popup__save popup__save_valid" type="submit" aria-label="Save"></button>
             </form> 
           </div>
