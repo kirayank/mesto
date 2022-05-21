@@ -1,5 +1,10 @@
 .popup__span{
+    /*position: absolute;
     position: absolute;
+    left: 100px;
+    top: 100px;
+    */
+    
     display: inline;
     width: 358px;
     margin: 5px 36px 10px;

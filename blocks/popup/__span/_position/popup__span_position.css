@@ -1,3 +1,5 @@
 .popup__span_position{
     position: relative;
+    display: block;
+    height: 10px;
 }
