@@ -42,6 +42,7 @@ function createCard (item){
   function openCard (){
     popupImage.src = item.link;
     popupImageTitle.textContent = item.name;
+    popupImage.alt = item.name;
     openPopup(popupOpenImage);
   }
   loadPicture.addEventListener('click', openCard);
@@ -62,8 +63,8 @@ function createCard (item){
 }
 
 function pressEscapeButton(evt) {
-  const popupOpened = document.querySelector('.popup_opened');
   if(evt.key === "Escape"){
+    const popupOpened = document.querySelector('.popup_opened');
     closePopup (popupOpened);
     }
  }
@@ -75,22 +76,21 @@ function clickOverlay(popups) {
       closePopup(popup); }})})
 }
 
-function openPopup(popups) {
-  popups.classList.add('popup_opened');
+function openPopup(popup) {
+  popup.classList.add('popup_opened');
   document.addEventListener('keydown', pressEscapeButton);
   
 }
 
-function closePopup(popups) {
-  popups.classList.remove('popup_opened');
+function closePopup(popup) {
+  popup.classList.remove('popup_opened');
   document.removeEventListener('keydown', pressEscapeButton);
-  popups.addEventListener('click', clickOverlay);
 }
 
 
 function renderPicture (item){
   const pictureElement = createCard(item);
-  elementsContainer.append(pictureElement); //вставляем карточку
+  elementsContainer.prepend(pictureElement); //вставляем карточку
 }
 
 
