@@ -1,5 +1,19 @@
 .popup__position{
-    position: relative;
+    /*position: relative;
     display: block;
-    height: 10px;
+    height: 0;
+    width: 358px;
+    margin: 0;
+    padding: 0 0 13px 0;*/
+    position: relative;
+    margin: auto;
+    padding: 0;
+    max-width: 358px;
+    width: 100%;
+}
+
+@media (min-width: 520px) {
+    .popup__fieldset {
+        max-width: 358px;
+    }
 }

@@ -38,9 +38,10 @@
 @import url(../blocks/popup/__name/popup__name.css);
 @import url(../blocks/popup/__save/_invalid/popup__save_invalid.css);
 @import url(../blocks/popup/__save/_valid/popup__save_valid.css);
-@import url(../blocks/popup/__span/popup__span.css);
+@import url(../blocks/popup/__span-element/popup__span-element.css);
 @import url(../blocks/popup/__input/_error/popup__input_type_error.css);
 @import url(../blocks/popup/__position/popup__position.css);
+@import url(../blocks/popup/__form/popup__form.css);
 
 
 /*шрифт*/

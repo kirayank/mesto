@@ -3,7 +3,7 @@ const objectData = {
   inputSelector: '.popup__input',
   submitButtonSelector: '.popup__save',
   inactiveButtonClass: 'popup__save_invalid',
-  inputErrorClass: 'popup__span',
+  inputErrorClass: 'popup__span-element',
   errorClass: 'popup__input_type_error'
 };
 
