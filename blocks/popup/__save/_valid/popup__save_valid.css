@@ -13,13 +13,13 @@
     .popup__save_valid {
         width: 238px;
         height: 46px;
-        margin: 28px 22px 25px;
+        margin: 8px 22px 25px;
         background-image: url(../../../../images/save_button_mobile.svg);
     }
     .popup__save_valid:disabled{
         width: 238px;
         height: 46px;
-        margin: 28px 22px 25px;
+        margin: 8px 22px 25px;
         background-image: url(../../../../images/save_button_invalid.svg);
     }
 }

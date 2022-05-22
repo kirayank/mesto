@@ -3,8 +3,10 @@
     height: 50px;
     /*background-image: url(../../../images/save_button.svg);*/
     transition: opacity 0.3s linear;
-    margin: 18px 36px 37px;
+    /*margin: 18px 36px 37px;*/
+    margin: 0;
     border-radius: 2px;
+    padding-top: 20px;
 }
 
 .popup__save:hover{
@@ -16,7 +18,8 @@
     .popup__save {
         width: 238px;
         height: 46px;
-        margin: 28px 22px 25px;
+        margin: 0;
+        padding: 0;
         /*background-image: url(../../../images/save_button_mobile.svg);*/
     }
 }

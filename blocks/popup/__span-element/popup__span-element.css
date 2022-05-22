@@ -16,7 +16,7 @@
     color: #FF0000;*/
     position: absolute;
     width: 358px;
-    top: 55px;
+    top: 25px;
     left: 0;
     color: #ff0000;
     font-family: "Inter";
@@ -31,6 +31,8 @@
 @media screen and (max-width: 514px) {
     .popup__span-element {
         /*margin: -25px 22px 30px;*/
-        top: 60px;
+        top: 25px;
+        width: 238px;
+        margin-left: 21px;
     }
 }

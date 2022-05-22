@@ -4,7 +4,8 @@
     background-size: auto;
     max-width: 75vw;
     max-height: 75vh;
-    position: relative;
+    /*position: fixed;
+    top: 20%;*/
     align-self: center;
-    margin: auto;
+    background-position: center;
 }
