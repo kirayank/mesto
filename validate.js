@@ -13,7 +13,7 @@ const findErrorElement = (formElement, inputElement) => {
 
 const showInputError = (formElement, inputElement, errorMessage, object) => {
   const errorElement = findErrorElement(formElement, inputElement);
-  inputElement.classList.add(object.inputErrorClass);
+  //inputElement.classList.add(object.inputErrorClass);
   errorElement.textContent = errorMessage;
   errorElement.classList.add(object.errorClass);
 };

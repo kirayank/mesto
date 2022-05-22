@@ -15,6 +15,7 @@
     line-height: 15px;
     color: #FF0000;*/
     position: absolute;
+    width: 358px;
     top: 55px;
     left: 0;
     color: #ff0000;
@@ -24,7 +25,7 @@
     font-size: 12px;
     line-height: 1.25;
     z-index: 100;
-        
+    overflow-wrap: break-word;      
 }
 
 @media screen and (max-width: 514px) {
