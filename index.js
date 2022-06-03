@@ -9,16 +9,16 @@ const nameInput = document.querySelector('#popup__input_name');
 const jobInput = document.querySelector('#popup__input_about');
 const nameProfile = document.getElementById('popup__profile_name'); //получила значение всей строки (что написано в заголовке)
 const aboutProfile = document.getElementById('popup__profile_about');
-const elementsContainer = document.querySelector('.elements__list');//обращение в списку картиночек
+
 
 const titleInput = document.querySelector('#popup__input_title'); //поле названия картинки
 const linkInput = document.querySelector('#popup__input_link'); //поле с ссылкой на картинку
 
-const popupImage = document.querySelector('.popup__picture');
-const popupImageTitle = document.querySelector('.popup__name');
+/*const popupImage = document.querySelector('.popup__picture');*/
+//const popupImageTitle = document.querySelector('.popup__name');
 
 const popups = document.querySelectorAll('.popup');
-const popupOpenImage = document.querySelector('.popup_type_image');
+//const popupOpenImage = document.querySelector('.popup_type_image');
 
 const buttonExitPopup = document.querySelector('#popup__exit_picture');
 
@@ -27,7 +27,7 @@ const popupOpenAddForm = document.querySelector('.popup_type_addform');
 
 
 
-function createCard (item){
+/*function createCard (item){
     
   const elementTemplate = document.querySelector('#element-template').content;
   const pictureElement = elementTemplate.querySelector('.elements__element').cloneNode(true);
@@ -60,7 +60,7 @@ function createCard (item){
   pictureElement.querySelector('.elements__like').addEventListener('click', likeCard);
 
   return pictureElement;   
-}
+}*/
 
 function pressEscapeButton(evt) {
   if(evt.key === "Escape"){
@@ -88,10 +88,7 @@ function closePopup(popup) {
 }
 
 
-function renderPicture (item){
-  const pictureElement = createCard(item);
-  elementsContainer.prepend(pictureElement); //вставляем карточку
-}
+
 
 
 function openEditUserForm () {
@@ -151,7 +148,7 @@ buttonExitPopup.addEventListener('click', function (){
 clickOverlay(popups);
 
 
-initialCards.forEach(renderPicture);//вызываем для каждого объекта массива функцию создания карточки
+//initialCards.forEach(renderPicture);//вызываем для каждого объекта массива функцию создания карточки
 
 
 
