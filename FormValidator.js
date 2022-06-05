@@ -16,7 +16,7 @@ class FormValidator {
         this._inputList = Array.from(this._formSelector.querySelectorAll(this._object.inputSelector));
         //this._buttonElement = this.formElement.querySelector(this._object.submitButtonSelector);
         this._buttonElement = this._formSelector.querySelector(this._object.submitButtonSelector);
-        this._errorElement = this._formSelector.querySelector(`.${this._object.inputSelector.id}-error`);
+        //this._errorElement = this._formSelector.querySelector(`.${this._object.inputSelector.id}-error`);
     }
 
     _showInputError = (inputElement) => {
