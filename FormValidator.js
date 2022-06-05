@@ -5,31 +5,23 @@ const objectData = {
     inputSelector: '.popup__input',
     submitButtonSelector: '.popup__save',
     inactiveButtonClass: 'popup__save_invalid',
-    inputErrorClass: 'popup__span-element',
-    errorClass: 'popup__input_type_error'
+    inputErrorClass: 'popup__input_type_error',
+    errorClass: 'popup__span-element'
 };
 
 class FormValidator {
     constructor(object, formSelector) {
         this._object = object; //Сам обьект
         this._formSelector = formSelector; //Селектор формы, на которую накладывается валидация
-        this._inputList = Array.from(
-            this._formSelector.querySelectorAll(this._object.inputSelector)
-        );
+        this._inputList = Array.from(this._formSelector.querySelectorAll(this._object.inputSelector));
         //this._buttonElement = this.formElement.querySelector(this._object.submitButtonSelector);
-        this._buttonElement = this._formSelector.querySelector(
-            this._object.submitButtonSelector
-        );
-        this._errorElement = this._formSelector.querySelector(
-            `.${this._object.inputSelector.id}-error`
-        );
+        this._buttonElement = this._formSelector.querySelector(this._object.submitButtonSelector);
+        this._errorElement = this._formSelector.querySelector(`.${this._object.inputSelector.id}-error`);
     }
 
     _showInputError = (inputElement) => {
         // this._errorElement = findErrorElement(formElement, inputElement);
-        const errorElement = this._formSelector.querySelector(
-            `.${inputElement.id}-error`
-        );
+        const errorElement = this._formSelector.querySelector(`.${inputElement.id}-error`);
         inputElement.classList.add(this._object.inputErrorClass); // добавили стили ошибочному инпуту
         errorElement.textContent = inputElement.validationMessage;
         errorElement.classList.add(this._object.errorClass);
@@ -45,12 +37,8 @@ class FormValidator {
     // Функция, которая проверяет валидность поля
     _isValid = (inputElement) => {
         if (!inputElement.validity.valid) {
-            // showInputError теперь получает параметром форму, в которой
-            // находится проверяемое поле, и само это поле
             this._showInputError(inputElement);
         } else {
-            // hideInputError теперь получает параметром форму, в которой
-            // находится проверяемое поле, и само это поле
             this._hideInputError(inputElement);
         }
     };
@@ -61,25 +49,22 @@ class FormValidator {
         });
     };
 
-    // Функция принимает массив полей ввода
-    // и элемент кнопки, состояние которой нужно менять
-
     _toggleButtonState = () => {
 
         if (this._hasInvalidInput(this._inputList)) {
             this._buttonElement.classList.add(this._object.inactiveButtonClass);
             this._buttonElement.disabled = "disabled";
         } else {
-            this._buttonElement.classList.remove(
-                this._object.inactiveButtonClass
-            );
+            this._buttonElement.classList.remove(this._object.inactiveButtonClass);
             this._buttonElement.disabled = "";
         }
     };
 
     _setEventListeners = () => {
-        this._buttonElement;
-        this._toggleButtonState(); // Вызвали проверку
+        //this._buttonElement;
+        if (this._buttonElement){
+            this._toggleButtonState(); // Вызвали проверку
+        }
         // Пробежались по массиву инпутов, навесили обработчик
         this._inputList.forEach((inputElement) => {
             inputElement.addEventListener("input", () => {
@@ -95,9 +80,9 @@ class FormValidator {
 }
 
 function formValidate() {
-    const enableValidationAddForm = new FormValidator(objectData, '.popup__addform');
+    const enableValidationAddForm = new FormValidator(objectData, addForm);
     enableValidationAddForm.enableValidation();
-    const enableValidationEditForm = new FormValidator(objectData, '.popup__editform');
+    const enableValidationEditForm = new FormValidator(objectData, editForm);
     enableValidationEditForm.enableValidation();
 };
 
