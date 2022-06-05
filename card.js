@@ -113,10 +113,3 @@ class Card {
   };
 
   renderPicture();
-
-  /*function renderPicture (item){
-    const pictureElement = generateCard(item);
-    elementsContainer.prepend(pictureElement); //вставляем карточку
-  }
-
-  initialCards.forEach(renderPicture);//вызываем для каждого объекта массива функцию создания карточки*/
