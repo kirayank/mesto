@@ -1,4 +1,4 @@
-const initialCards = [
+export const initialCards = [
     {
       name: 'Архыз',
       link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
@@ -24,15 +24,14 @@ const initialCards = [
       link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
     }
   ];
-const popupElement = document.querySelector('.popup');
-const popupCloseButton = document.querySelector('.popup__exit');
-const popupImage = document.querySelector('.popup__picture');
-const popupImageTitle = document.querySelector('.popup__name');
-const elementsContainer = document.querySelector('.elements__list');//обращение в списку картиночек
-const popupOpenImage = document.querySelector('.popup_type_image');
-
+export const popupElement = document.querySelector('.popup');
+export const popupCloseButton = document.querySelector('.popup__exit');
+export const popupImage = document.querySelector('.popup__picture');
+export const popupImageTitle = document.querySelector('.popup__name');
+export const elementsContainer = document.querySelector('.elements__list');//обращение в списку картиночек
+export const popupOpenImage = document.querySelector('.popup_type_image');
 //Card class
-class Card {
+export class Card {
     constructor(data) {
       //this._cardSelector = cardSelector;
       this._name = data.name;
@@ -104,12 +103,4 @@ class Card {
   
   }
 
-  function renderPicture() {
-    initialCards.forEach((item) => {
-        const card = new Card(item, '#element-template');
-        const pictureElement = card.generateCard(item);
-        elementsContainer.prepend(pictureElement); //вставляем карточку
-    });
-  };
-
-  renderPicture();
+  

@@ -1,3 +1,7 @@
+import { initialCards, popupElement, popupCloseButton, popupImage, popupImageTitle, elementsContainer, popupOpenImage, Card } from './card.js';
+import { objectData, FormValidator } from './FormValidator.js';
+
+
 const buttonEdit = document.querySelector('.profile__editbutton');
 const popupOpenEditForm = document.querySelector('.popup_type_editform');
 const buttonExit = document.querySelector('.popup__exit');
@@ -27,41 +31,6 @@ const popupOpenAddForm = document.querySelector('.popup_type_addform');
 
 
 
-/*function createCard (item){
-    
-  const elementTemplate = document.querySelector('#element-template').content;
-  const pictureElement = elementTemplate.querySelector('.elements__element').cloneNode(true);
-  const loadPicture = pictureElement.querySelector('.elements__image');
-  const loadPictureName = pictureElement.querySelector('.elements__name');
-
-  loadPicture.src = item.link; //вставим картиночку
-  loadPictureName.textContent = item.name; //вставим имя в заголовок
-  loadPicture.alt = item.name;
-
-  // на клик откроем карточку
-  function openCard (){
-    popupImage.src = item.link;
-    popupImageTitle.textContent = item.name;
-    popupImage.alt = item.name;
-    openPopup(popupOpenImage);
-  }
-  loadPicture.addEventListener('click', openCard);
-
-  //удаление карточки
-  function removeCard (evt){
-    evt.target.closest('.elements__element').remove();
-  }
-  pictureElement.querySelector('.elements__trash').addEventListener('click', removeCard);
-
-  //лайк
-  function likeCard (evt){
-    evt.target.classList.toggle('elements__like_active');
-  }
-  pictureElement.querySelector('.elements__like').addEventListener('click', likeCard);
-
-  return pictureElement;   
-}*/
-
 function pressEscapeButton(evt) {
   if(evt.key === "Escape"){
     const popupOpened = document.querySelector('.popup_opened');
@@ -86,9 +55,6 @@ function closePopup(popup) {
   popup.classList.remove('popup_opened');
   document.removeEventListener('keydown', pressEscapeButton);
 }
-
-
-
 
 
 function openEditUserForm () {
@@ -147,6 +113,20 @@ buttonExitPopup.addEventListener('click', function (){
 
 clickOverlay(popups);
 
+const enableValidationAddForm = new FormValidator(objectData, addForm);
+enableValidationAddForm.enableValidation();
+const enableValidationEditForm = new FormValidator(objectData, editForm);
+enableValidationEditForm.enableValidation();
+
+function renderPicture() {
+  initialCards.forEach((item) => {
+      const card = new Card(item, '#element-template');
+      const pictureElement = card.generateCard(item);
+      elementsContainer.prepend(pictureElement); //вставляем карточку
+  });
+};
+
+renderPicture();
 
 //initialCards.forEach(renderPicture);//вызываем для каждого объекта массива функцию создания карточки
 

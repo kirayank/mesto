@@ -1,6 +1,6 @@
 //class FormValidator
 
-const objectData = {
+export const objectData = {
     //formSelector: '.popup',
     inputSelector: '.popup__input',
     submitButtonSelector: '.popup__save',
@@ -9,7 +9,7 @@ const objectData = {
     errorClass: 'popup__span-element'
 };
 
-class FormValidator {
+export class FormValidator {
     constructor(object, formSelector) {
         this._object = object; //Сам обьект
         this._formSelector = formSelector; //Селектор формы, на которую накладывается валидация
@@ -78,12 +78,3 @@ class FormValidator {
         this._setEventListeners();
     };
 }
-
-function formValidate() {
-    const enableValidationAddForm = new FormValidator(objectData, addForm);
-    enableValidationAddForm.enableValidation();
-    const enableValidationEditForm = new FormValidator(objectData, editForm);
-    enableValidationEditForm.enableValidation();
-};
-
-formValidate();
