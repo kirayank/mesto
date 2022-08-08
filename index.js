@@ -1,7 +1,42 @@
-import { initialCards, popupElement, popupCloseButton, popupImage, popupImageTitle, elementsContainer, popupOpenImage, Card } from './card.js';
-import { objectData, FormValidator } from './FormValidator.js';
-
-
+import { elementsContainer } from './constants.js';
+import { Card } from './Card.js';
+import { FormValidator } from './FormValidator.js';
+//для валидатора
+const objectData = {
+  inputSelector: '.popup__input',
+  submitButtonSelector: '.popup__save',
+  inactiveButtonClass: 'popup__save_invalid',
+  inputErrorClass: 'popup__input_type_error',
+  errorClass: 'popup__span-element'
+};
+//для карточки
+const initialCards = [
+  {
+    name: 'Архыз',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
+  },
+  {
+    name: 'Челябинская область',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
+  },
+  {
+    name: 'Иваново',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
+  },
+  {
+    name: 'Камчатка',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
+  },
+  {
+    name: 'Холмогорский район',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
+  },
+  {
+    name: 'Байкал',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
+  }
+];
+//все остальное
 const buttonEdit = document.querySelector('.profile__editbutton');
 const popupOpenEditForm = document.querySelector('.popup_type_editform');
 const buttonExit = document.querySelector('.popup__exit');
@@ -13,23 +48,11 @@ const nameInput = document.querySelector('#popup__input_name');
 const jobInput = document.querySelector('#popup__input_about');
 const nameProfile = document.getElementById('popup__profile_name'); //получила значение всей строки (что написано в заголовке)
 const aboutProfile = document.getElementById('popup__profile_about');
-
-
 const titleInput = document.querySelector('#popup__input_title'); //поле названия картинки
 const linkInput = document.querySelector('#popup__input_link'); //поле с ссылкой на картинку
-
-/*const popupImage = document.querySelector('.popup__picture');*/
-//const popupImageTitle = document.querySelector('.popup__name');
-
 const popups = document.querySelectorAll('.popup');
-//const popupOpenImage = document.querySelector('.popup_type_image');
-
 const buttonExitPopup = document.querySelector('#popup__exit_picture');
-
 const popupOpenAddForm = document.querySelector('.popup_type_addform');
-
-
-
 
 function pressEscapeButton(evt) {
   if(evt.key === "Escape"){
@@ -48,14 +71,12 @@ function clickOverlay(popups) {
 function openPopup(popup) {
   popup.classList.add('popup_opened');
   document.addEventListener('keydown', pressEscapeButton);
-  
 }
 
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
   document.removeEventListener('keydown', pressEscapeButton);
 }
-
 
 function openEditUserForm () {
   nameInput.value = nameProfile.textContent; //присвоила значению инпута значение тега
@@ -81,7 +102,6 @@ function handleSubmitEditForm (evt) {
   disableSubmitButton(popupOpenEditForm);
 }
 
-
 function openAddForm(){
   openPopup(popupOpenAddForm);
 }
@@ -100,8 +120,6 @@ function handlerSubmitAddForm (evt) {
 }
 
 addForm.addEventListener('submit', handlerSubmitAddForm);
-
-
 buttonAdd.addEventListener('click', openAddForm);
 buttonEdit.addEventListener('click', openEditUserForm);
 buttonExit.addEventListener('click', closeEditForm);
@@ -110,7 +128,6 @@ editForm.addEventListener('submit', handleSubmitEditForm);
 buttonExitPopup.addEventListener('click', function (){
   closePopup(popupOpenImage);
 });
-
 clickOverlay(popups);
 
 const enableValidationAddForm = new FormValidator(objectData, addForm);
@@ -127,16 +144,3 @@ function renderPicture() {
 };
 
 renderPicture();
-
-//initialCards.forEach(renderPicture);//вызываем для каждого объекта массива функцию создания карточки
-
-
-
-
-
-
-
-
-
-
-

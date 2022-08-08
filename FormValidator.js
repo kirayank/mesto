@@ -1,41 +1,27 @@
-//class FormValidator
-
-export const objectData = {
-    //formSelector: '.popup',
-    inputSelector: '.popup__input',
-    submitButtonSelector: '.popup__save',
-    inactiveButtonClass: 'popup__save_invalid',
-    inputErrorClass: 'popup__input_type_error',
-    errorClass: 'popup__span-element'
-};
-
 export class FormValidator {
-    constructor(object, formSelector) {
-        this._object = object; //Сам обьект
-        this._formSelector = formSelector; //Селектор формы, на которую накладывается валидация
-        this._inputList = Array.from(this._formSelector.querySelectorAll(this._object.inputSelector));
-        //this._buttonElement = this.formElement.querySelector(this._object.submitButtonSelector);
-        this._buttonElement = this._formSelector.querySelector(this._object.submitButtonSelector);
-        //this._errorElement = this._formSelector.querySelector(`.${this._object.inputSelector.id}-error`);
+    constructor(validationConfig, formElement) {
+        this.validationConfig = validationConfig; //Сам обьект
+        this._formElement = formElement; //Селектор формы, на которую накладывается валидация
+        this._inputList = Array.from(this._formElement.querySelectorAll(this.validationConfig.inputSelector));
+        this._buttonElement = this._formElement.querySelector(this.validationConfig.submitButtonSelector);
     }
 
     _showInputError = (inputElement) => {
-        // this._errorElement = findErrorElement(formElement, inputElement);
-        const errorElement = this._formSelector.querySelector(`.${inputElement.id}-error`);
-        inputElement.classList.add(this._object.inputErrorClass); // добавили стили ошибочному инпуту
+        const errorElement = this._formElement.querySelector(`#${inputElement.id}-error`); //изначальное
+        inputElement.classList.add(this.validationConfig.inputErrorClass); // добавили стили ошибочному инпуту
         errorElement.textContent = inputElement.validationMessage;
-        errorElement.classList.add(this._object.errorClass);
+        errorElement.classList.add(this.validationConfig.errorClass);
     };
 
     _hideInputError = (inputElement) => {
-        const errorElement = this._formSelector.querySelector(`.${inputElement.id}-error`);
-        inputElement.classList.remove(this._object.inputErrorClass);
-        errorElement.classList.remove(this._object.errorClass);
+        const errorElement = this._formElement.querySelector(`#${inputElement.id}-error`);
+        inputElement.classList.remove(this.validationConfig.inputErrorClass);
+        errorElement.classList.remove(this.validationConfig.errorClass);
         errorElement.textContent = "";
     };
 
     // Функция, которая проверяет валидность поля
-    _isValid = (inputElement) => {
+    _checkValidity = (inputElement) => {
         if (!inputElement.validity.valid) {
             this._showInputError(inputElement);
         } else {
@@ -52,10 +38,10 @@ export class FormValidator {
     _toggleButtonState = () => {
 
         if (this._hasInvalidInput(this._inputList)) {
-            this._buttonElement.classList.add(this._object.inactiveButtonClass);
+            this._buttonElement.classList.add(this.validationConfig.inactiveButtonClass);
             this._buttonElement.disabled = "disabled";
         } else {
-            this._buttonElement.classList.remove(this._object.inactiveButtonClass);
+            this._buttonElement.classList.remove(this.validationConfig.inactiveButtonClass);
             this._buttonElement.disabled = "";
         }
     };
@@ -68,7 +54,7 @@ export class FormValidator {
         // Пробежались по массиву инпутов, навесили обработчик
         this._inputList.forEach((inputElement) => {
             inputElement.addEventListener("input", () => {
-                this._isValid(inputElement);
+                this._checkValidity(inputElement);
                 this._toggleButtonState();
             });
         });
