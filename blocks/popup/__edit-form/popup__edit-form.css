@@ -1,4 +1,4 @@
-.popup__editform{
+.popup__edit-form{
     display: flex;
     flex-direction: column;
     position: relative;
@@ -15,7 +15,7 @@
 
 
 @media screen and (max-width: 514px) {
-    .popup__editform {
+    .popup__edit-form {
         width: 282px;
         height: 322px;
         margin: 123px 19px;

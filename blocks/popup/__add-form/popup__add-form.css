@@ -1,4 +1,4 @@
-.popup__addform{
+.popup__add-form{
     display: flex;
     flex-direction: column;
     position: relative;
@@ -15,7 +15,7 @@
 
 
 @media screen and (max-width: 514px) {
-    .popup__addform {
+    .popup__add-form {
         width: 282px;
         height: 322px;
         margin: 123px 19px;

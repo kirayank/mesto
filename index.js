@@ -1,6 +1,6 @@
-import { elementsContainer } from './constants.js';
-import { Card } from './Card.js';
-import { FormValidator } from './FormValidator.js';
+import { elementsContainer, popupOpenImage } from './constants.js';
+import { Card } from './scripts/Card.js';
+import { FormValidator } from './scripts/FormValidator.js';
 //для валидатора
 const objectData = {
   inputSelector: '.popup__input',
@@ -37,13 +37,13 @@ const initialCards = [
   }
 ];
 //все остальное
-const buttonEdit = document.querySelector('.profile__editbutton');
-const popupOpenEditForm = document.querySelector('.popup_type_editform');
+const buttonEdit = document.querySelector('.profile__edit-button');
+const popupOpenEditForm = document.querySelector('.popup_type_edit-form');
 const buttonExit = document.querySelector('.popup__exit');
-const buttonExitAddForm = document.querySelector('#popup__exit_addform');
-const buttonAdd = document.querySelector('.profile__addbutton');
-const editForm = document.querySelector('.popup__editform');
-const addForm = document.querySelector('.popup__addform');
+const buttonExitAddForm = document.querySelector('#popup__exit_add-form');
+const buttonAdd = document.querySelector('.profile__add-button');
+const formEdit = document.querySelector('.popup__edit-form');
+const formAdd = document.querySelector('.popup__add-form');
 const nameInput = document.querySelector('#popup__input_name'); 
 const jobInput = document.querySelector('#popup__input_about');
 const nameProfile = document.getElementById('popup__profile_name'); //получила значение всей строки (что написано в заголовке)
@@ -52,7 +52,7 @@ const titleInput = document.querySelector('#popup__input_title'); //поле н�
 const linkInput = document.querySelector('#popup__input_link'); //поле с ссылкой на картинку
 const popups = document.querySelectorAll('.popup');
 const buttonExitPopup = document.querySelector('#popup__exit_picture');
-const popupOpenAddForm = document.querySelector('.popup_type_addform');
+const popupOpenAddForm = document.querySelector('.popup_type_add-form');
 
 function pressEscapeButton(evt) {
   if(evt.key === "Escape"){
@@ -68,7 +68,7 @@ function clickOverlay(popups) {
       closePopup(popup); }})})
 }
 
-function openPopup(popup) {
+ function openPopup(popup) {
   popup.classList.add('popup_opened');
   document.addEventListener('keydown', pressEscapeButton);
 }
@@ -119,20 +119,20 @@ function handlerSubmitAddForm (evt) {
   disableSubmitButton(popupOpenAddForm);
 }
 
-addForm.addEventListener('submit', handlerSubmitAddForm);
+formAdd.addEventListener('submit', handlerSubmitAddForm);
 buttonAdd.addEventListener('click', openAddForm);
 buttonEdit.addEventListener('click', openEditUserForm);
 buttonExit.addEventListener('click', closeEditForm);
 buttonExitAddForm.addEventListener('click', closeAddForm);
-editForm.addEventListener('submit', handleSubmitEditForm);
+formEdit.addEventListener('submit', handleSubmitEditForm);
 buttonExitPopup.addEventListener('click', function (){
   closePopup(popupOpenImage);
 });
 clickOverlay(popups);
 
-const enableValidationAddForm = new FormValidator(objectData, addForm);
+const enableValidationAddForm = new FormValidator(objectData, formAdd);
 enableValidationAddForm.enableValidation();
-const enableValidationEditForm = new FormValidator(objectData, editForm);
+const enableValidationEditForm = new FormValidator(objectData, formEdit);
 enableValidationEditForm.enableValidation();
 
 function renderPicture() {
