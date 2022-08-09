@@ -47,7 +47,6 @@ export class FormValidator {
     };
 
     _setEventListeners = () => {
-        //this._buttonElement;
         if (this._buttonElement){
             this._toggleButtonState(); // Вызвали проверку
         }
