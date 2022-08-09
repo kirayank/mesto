@@ -88,18 +88,13 @@ function closeEditForm () {
   closePopup(popupOpenEditForm);
 }
 
-function disableSubmitButton(popup) {
-  const button = popup.querySelector('.popup__save');
-  button.classList.add('popup__save_invalid');
-  button.disabled = "disabled";
-}
 
 function handleSubmitEditForm (evt) {
   evt.preventDefault(); // Эта строчка отменяет стандартную отправку форм
   nameProfile.textContent = nameInput.value; //titleInput.value;
   aboutProfile.textContent = jobInput.value; //linkInput.value;
   closeEditForm();
-  disableSubmitButton(popupOpenEditForm);
+  //disableSubmitButton(popupOpenEditForm);
 }
 
 function openAddForm(){
@@ -110,13 +105,20 @@ function closeAddForm(){
   closePopup(popupOpenAddForm);
 }
 
+function createCard(item){
+  const card = new Card(item, '#element-template');
+  const newCard = card.generateCard(item);
+  return newCard
+};
+
 function handlerSubmitAddForm (evt) {
   evt.preventDefault();
   const newCard = {link: linkInput.value, name: titleInput.value};
-  renderPicture(newCard);
+  const cardPaste = createCard(newCard);
+  elementsContainer.prepend(cardPaste);
   closePopup(popupOpenAddForm);
   evt.target.reset();
-  disableSubmitButton(popupOpenAddForm);
+  //disableSubmitButton(popupOpenAddForm);
 }
 
 formAdd.addEventListener('submit', handlerSubmitAddForm);
@@ -130,16 +132,15 @@ buttonExitPopup.addEventListener('click', function (){
 });
 clickOverlay(popups);
 
-const enableValidationAddForm = new FormValidator(objectData, formAdd);
-enableValidationAddForm.enableValidation();
-const enableValidationEditForm = new FormValidator(objectData, formEdit);
-enableValidationEditForm.enableValidation();
+const formAddValidator = new FormValidator(objectData, formAdd);
+formAddValidator.enableValidation();
+const formEditValidator = new FormValidator(objectData, formEdit);
+formEditValidator.enableValidation();
 
 function renderPicture() {
   initialCards.forEach((item) => {
-      const card = new Card(item, '#element-template');
-      const pictureElement = card.generateCard(item);
-      elementsContainer.prepend(pictureElement); //вставляем карточку
+      const pictureElement = createCard(item);
+      elementsContainer.prepend(pictureElement);
   });
 };
 
