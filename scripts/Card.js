@@ -1,5 +1,5 @@
 import { popupImage, popupImageTitle, popupOpenImage } from '../constants.js';
-//import { openPopup } from './index.js';
+import { closePopup, openPopup } from '../index.js';
 
 export class Card {
     constructor(data) {
@@ -21,8 +21,9 @@ export class Card {
     generateCard() {
       this._element = this._getTemplate();
       this._setEventListeners();
-      this._element.querySelector('.elements__image').src = this._link;
-      this._element.querySelector('.elements__image').alt = this._name;
+      const elementImage = this._element.querySelector('.elements__image');
+      elementImage.src = this._link;
+      elementImage.alt = this._name;
       this._element.querySelector('.elements__name').textContent = this._name;
       return this._element;
     }
@@ -31,12 +32,12 @@ export class Card {
       popupImage.src = this._link;
       popupImageTitle.textContent = this._name;
       popupImage.alt = this._name;
-      popupOpenImage.classList.add('popup_opened');
+      openPopup(popupOpenImage);
     }
   
     _handleClosePreview() {
       popupImage.src = '';
-      popupOpenImage.classList.remove('popup_opened');
+      closePopup(popupOpenImage);
     }
 
     //удаление карточки
@@ -50,7 +51,8 @@ export class Card {
     }
   
     _setEventListeners() {
-      this._element.querySelector('.elements__image').addEventListener('click', () => {
+      const elementImage = this._element.querySelector('.elements__image');
+      elementImage.addEventListener('click', () => {
         this._handleOpenPreview();
       });
 

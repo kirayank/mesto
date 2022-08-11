@@ -65,15 +65,17 @@ function clickOverlay(popups) {
   Array.from(popups).forEach(popup => {
     popup.addEventListener("mousedown", (evt) => {
     if (evt.target.classList.contains('popup_opened')) { 
-      closePopup(popup); }})})
+      closePopup(popup);}
+    })
+  })
 }
 
- function openPopup(popup) {
+ export function openPopup(popup) {
   popup.classList.add('popup_opened');
   document.addEventListener('keydown', pressEscapeButton);
 }
 
-function closePopup(popup) {
+export function closePopup(popup) {
   popup.classList.remove('popup_opened');
   document.removeEventListener('keydown', pressEscapeButton);
 }
