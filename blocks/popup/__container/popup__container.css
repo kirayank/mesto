@@ -17,6 +17,11 @@
   position: relative;
 }
 
+#popup__container_picture {
+  max-width: fit-content;
+  align-items: flex-end;
+}
+
 @media (min-width: 514px) {
   .popup__container {
       max-width: 430px;
