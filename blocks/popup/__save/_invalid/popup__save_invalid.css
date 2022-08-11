@@ -8,6 +8,8 @@
         height: 46px;
         margin: 1px 22px 25px;
         background-image: url(../../../../images/save_button_invalid.svg);
-        background-size: cover;
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
     }
 }

@@ -24,6 +24,8 @@
 
 @media (min-width: 514px) {
   .popup__container {
-      max-width: 430px;
+      /*max-width: 430px;*/
+      max-width: fit-content;
+      align-items: flex-end;
   }
 }

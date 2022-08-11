@@ -28,22 +28,26 @@
 
 @media screen and (max-width: 514px) {
     .popup__exit {
-        position: absolute;
+        /*position: absolute;
         width: 20px;
         height: 20px;
         left: 281px;
-        top: 87px;
+        top: 87px;*/
+        position: relative;
+        width: 20px;
+        height: 20px;
+        left: 158px;
+        top: 118px;
         background-image: url(../../../images/exit_mobile.svg);
         margin: 0;
     }
     #popup__exit_picture{
-        /*position: absolute;
-        width: 20px;
-        height: 20px;
-        left: 351px;
-        top: -50px;*/
         position: relative;
+        margin-right: -40px;
+        margin-bottom: 8px;
+        left: 0px;
+        top: 0px;
         background-image: url(../../../images/exit_mobile.svg);
-        margin: 0;
+        
     }
 }
