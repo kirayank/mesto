@@ -120,7 +120,7 @@ function handlerSubmitAddForm (evt) {
   elementsContainer.prepend(cardPaste);
   closePopup(popupOpenAddForm);
   evt.target.reset();
-  formAddValidator._toggleButtonState(popupOpenAddForm);
+  formAddValidator.toggleButtonState();
 }
 
 formAdd.addEventListener('submit', handlerSubmitAddForm);

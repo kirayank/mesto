@@ -28,23 +28,19 @@
 
 @media screen and (max-width: 514px) {
     .popup__exit {
-        /*position: absolute;
-        width: 20px;
-        height: 20px;
-        left: 281px;
-        top: 87px;*/
         position: relative;
+        align-self: flex-end;
         width: 20px;
         height: 20px;
-        left: 158px;
-        top: 118px;
         background-image: url(../../../images/exit_mobile.svg);
         margin: 0;
+        margin-bottom: 16px;
     }
     #popup__exit_picture{
         position: relative;
-        margin-right: -40px;
-        margin-bottom: 8px;
+        margin-right: 0px;
+        margin-bottom: 10px;
+        align-self: flex-end;
         left: 0px;
         top: 0px;
         background-image: url(../../../images/exit_mobile.svg);

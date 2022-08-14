@@ -20,11 +20,11 @@ export class Card {
     //генерация карточки
     generateCard() {
       this._element = this._getTemplate();
-      this._setEventListeners();
-      const elementImage = this._element.querySelector('.elements__image');
-      elementImage.src = this._link;
-      elementImage.alt = this._name;
+      this._elementImage = this._element.querySelector('.elements__image');
+      this._elementImage.src = this._link;
+      this._elementImage.alt = this._name;
       this._element.querySelector('.elements__name').textContent = this._name;
+      this._setEventListeners();
       return this._element;
     }
   
@@ -51,8 +51,7 @@ export class Card {
     }
   
     _setEventListeners() {
-      const elementImage = this._element.querySelector('.elements__image');
-      elementImage.addEventListener('click', () => {
+      this._elementImage.addEventListener('click', () => {
         this._handleOpenPreview();
       });
 

@@ -35,7 +35,7 @@ export class FormValidator {
         });
     };
 
-    _toggleButtonState = () => {
+    toggleButtonState = () => {
 
         if ((this._hasInvalidInput(this._inputList)) || (this.value === '')) {
             this._buttonElement.classList.add(this.validationConfig.inactiveButtonClass);
@@ -48,13 +48,13 @@ export class FormValidator {
 
     _setEventListeners = () => {
         if (this._buttonElement){
-            this._toggleButtonState(); // Вызвали проверку
+            this.toggleButtonState(); // Вызвали проверку
         }
         // Пробежались по массиву инпутов, навесили обработчик
         this._inputList.forEach((inputElement) => {
             inputElement.addEventListener("input", () => {
                 this._checkValidity(inputElement);
-                this._toggleButtonState();
+                this.toggleButtonState();
             });
         });
     };

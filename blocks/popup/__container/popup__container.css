@@ -4,9 +4,7 @@
     z-index: 2;
 }*/
 .popup__container {
-  width: 100%;
-  /*max-width: 282px;*/
-  /*background-color: white;*/
+  max-width: fit-content;
   color: black;
   box-shadow:  rgba(0, 0, 0, .15);
   border-radius: 10px;
