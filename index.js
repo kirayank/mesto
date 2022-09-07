@@ -1,6 +1,11 @@
 import { elementsContainer, popupOpenImage } from './constants.js';
 import { Card } from './scripts/Card.js';
 import { FormValidator } from './scripts/FormValidator.js';
+import { Section } from './scripts/Section.js';
+import Popup from './scripts/Popup.js';
+import { PopupWithForm } from './scripts/PopupWithForm.js';
+import { PopupWithImage } from './scripts/PopupWithImage.js';
+import { UserInfo } from './scripts/UserInfo.js';
 //для валидатора
 const objectData = {
   inputSelector: '.popup__input',
@@ -54,7 +59,7 @@ const popups = document.querySelectorAll('.popup');
 const buttonExitPopup = document.querySelector('#popup__exit_picture');
 const popupOpenAddForm = document.querySelector('.popup_type_add-form');
 
-function pressEscapeButton(evt) {
+/*function pressEscapeButton(evt) {
   if(evt.key === "Escape"){
     const popupOpened = document.querySelector('.popup_opened');
     closePopup (popupOpened);
@@ -105,10 +110,12 @@ function openAddForm(){
 
 function closeAddForm(){
   closePopup(popupOpenAddForm);
-}
+}*/
 
 function createCard(item){
-  const card = new Card(item, '#element-template');
+  const card = new Card({data: item, handleCardClick: (link, name) => {
+    previewImage.open(link, name)
+  }}, '#element-template');
   const newCard = card.generateCard(item);
   return newCard
 };
@@ -123,27 +130,74 @@ function handlerSubmitAddForm (evt) {
   formAddValidator.toggleButtonState();
 }
 
-formAdd.addEventListener('submit', handlerSubmitAddForm);
-buttonAdd.addEventListener('click', openAddForm);
-buttonEdit.addEventListener('click', openEditUserForm);
-buttonExit.addEventListener('click', closeEditForm);
-buttonExitAddForm.addEventListener('click', closeAddForm);
-formEdit.addEventListener('submit', handleSubmitEditForm);
-buttonExitPopup.addEventListener('click', function (){
+
+/*buttonExitPopup.addEventListener('click', function (){
   closePopup(popupOpenImage);
 });
-clickOverlay(popups);
+clickOverlay(popups);*/
+
+//const formAddPopup = new PopupWithForm('.popup__add-form', )
+const userInfo = new UserInfo({
+  userNameSelector:'.profile__name',
+  userInfoSelector:'.profile__about'
+});
+
+
+const formEditProfile = new PopupWithForm({
+  popupSelector: '.popup_type_edit-form', 
+  handleFormSubmit: (data) => {
+    userInfo.setUserInfo(
+      data.name,
+      data.info
+    );
+    formEditProfile.close();
+    formEditProfile.removeEventListeners();
+  }
+});
+formEditProfile.setEventListeners();
+
+buttonEdit.addEventListener("click", () => {
+  const {name, info} = userInfo.getUserInfo()
+  nameInput.value = name;
+  jobInput.value = info;
+  formEditProfile.open();
+});
+
+const initialCardList = new Section({
+  items: initialCards,
+  renderer: (item) => {
+    const card = createCard(item);
+    initialCardList.addItem(card);
+  }
+}, '.elements__list');
+
+const previewImage = new PopupWithImage('.popup_type_image');
+previewImage.setEventListeners();
+
+const formAddCard = new PopupWithForm({
+  popupSelector: '.popup_type_add-form',
+  handleFormSubmit: (data) => {
+    const addedCard = createCard({
+      link: data.source,
+      name: data.text,
+      alt: data.text
+    });
+    initialCardList.addItem(addedCard);
+    formAddCard.close()
+    formAddCard.removeEventListeners()
+  }
+})
+formAddCard.setEventListeners()
+
+buttonAdd.addEventListener("click", () => {
+  formAddCard.open();
+});
 
 const formAddValidator = new FormValidator(objectData, formAdd);
 formAddValidator.enableValidation();
 const formEditValidator = new FormValidator(objectData, formEdit);
 formEditValidator.enableValidation();
 
-function renderPicture() {
-  initialCards.forEach((item) => {
-      const pictureElement = createCard(item);
-      elementsContainer.prepend(pictureElement);
-  });
-};
 
-renderPicture();
+
+initialCardList.renderElements();
