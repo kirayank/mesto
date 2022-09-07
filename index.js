@@ -1,8 +1,7 @@
-import { elementsContainer, popupOpenImage } from './constants.js';
+import { buttonEdit, buttonAdd, formEdit, formAdd, nameInput, jobInput } from './constants.js';
 import { Card } from './scripts/Card.js';
 import { FormValidator } from './scripts/FormValidator.js';
 import { Section } from './scripts/Section.js';
-import Popup from './scripts/Popup.js';
 import { PopupWithForm } from './scripts/PopupWithForm.js';
 import { PopupWithImage } from './scripts/PopupWithImage.js';
 import { UserInfo } from './scripts/UserInfo.js';
@@ -41,76 +40,7 @@ const initialCards = [
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
   }
 ];
-//все остальное
-const buttonEdit = document.querySelector('.profile__edit-button');
-const popupOpenEditForm = document.querySelector('.popup_type_edit-form');
-const buttonExit = document.querySelector('.popup__exit');
-const buttonExitAddForm = document.querySelector('#popup__exit_add-form');
-const buttonAdd = document.querySelector('.profile__add-button');
-const formEdit = document.querySelector('.popup__edit-form');
-const formAdd = document.querySelector('.popup__add-form');
-const nameInput = document.querySelector('#popup__input_name'); 
-const jobInput = document.querySelector('#popup__input_about');
-const nameProfile = document.getElementById('popup__profile_name'); //получила значение всей строки (что написано в заголовке)
-const aboutProfile = document.getElementById('popup__profile_about');
-const titleInput = document.querySelector('#popup__input_title'); //поле названия картинки
-const linkInput = document.querySelector('#popup__input_link'); //поле с ссылкой на картинку
-const popups = document.querySelectorAll('.popup');
-const buttonExitPopup = document.querySelector('#popup__exit_picture');
-const popupOpenAddForm = document.querySelector('.popup_type_add-form');
 
-/*function pressEscapeButton(evt) {
-  if(evt.key === "Escape"){
-    const popupOpened = document.querySelector('.popup_opened');
-    closePopup (popupOpened);
-    }
- }
-
-function clickOverlay(popups) {
-  Array.from(popups).forEach(popup => {
-    popup.addEventListener("mousedown", (evt) => {
-    if (evt.target.classList.contains('popup_opened')) { 
-      closePopup(popup);}
-    })
-  })
-}
-
- export function openPopup(popup) {
-  popup.classList.add('popup_opened');
-  document.addEventListener('keydown', pressEscapeButton);
-}
-
-export function closePopup(popup) {
-  popup.classList.remove('popup_opened');
-  document.removeEventListener('keydown', pressEscapeButton);
-}
-
-function openEditUserForm () {
-  nameInput.value = nameProfile.textContent; //присвоила значению инпута значение тега
-  jobInput.value = aboutProfile.textContent;
-  openPopup(popupOpenEditForm);
-}
-
-function closeEditForm () {
-  closePopup(popupOpenEditForm);
-}
-
-
-function handleSubmitEditForm (evt) {
-  evt.preventDefault(); // Эта строчка отменяет стандартную отправку форм
-  nameProfile.textContent = nameInput.value; //titleInput.value;
-  aboutProfile.textContent = jobInput.value; //linkInput.value;
-  closeEditForm();
-  //disableSubmitButton(popupOpenEditForm);
-}
-
-function openAddForm(){
-  openPopup(popupOpenAddForm);
-}
-
-function closeAddForm(){
-  closePopup(popupOpenAddForm);
-}*/
 
 function createCard(item){
   const card = new Card({data: item, handleCardClick: (link, name) => {
@@ -120,28 +50,10 @@ function createCard(item){
   return newCard
 };
 
-function handlerSubmitAddForm (evt) {
-  evt.preventDefault();
-  const newCard = {link: linkInput.value, name: titleInput.value};
-  const cardPaste = createCard(newCard);
-  elementsContainer.prepend(cardPaste);
-  closePopup(popupOpenAddForm);
-  evt.target.reset();
-  formAddValidator.toggleButtonState();
-}
-
-
-/*buttonExitPopup.addEventListener('click', function (){
-  closePopup(popupOpenImage);
-});
-clickOverlay(popups);*/
-
-//const formAddPopup = new PopupWithForm('.popup__add-form', )
 const userInfo = new UserInfo({
   userNameSelector:'.profile__name',
   userInfoSelector:'.profile__about'
 });
-
 
 const formEditProfile = new PopupWithForm({
   popupSelector: '.popup_type_edit-form', 
@@ -197,7 +109,5 @@ const formAddValidator = new FormValidator(objectData, formAdd);
 formAddValidator.enableValidation();
 const formEditValidator = new FormValidator(objectData, formEdit);
 formEditValidator.enableValidation();
-
-
 
 initialCardList.renderElements();
