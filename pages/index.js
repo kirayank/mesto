@@ -1,10 +1,10 @@
-import { buttonEdit, buttonAdd, formEdit, formAdd, nameInput, jobInput } from './constants.js';
-import { Card } from './scripts/Card.js';
-import { FormValidator } from './scripts/FormValidator.js';
-import { Section } from './scripts/Section.js';
-import { PopupWithForm } from './scripts/PopupWithForm.js';
-import { PopupWithImage } from './scripts/PopupWithImage.js';
-import { UserInfo } from './scripts/UserInfo.js';
+import { buttonEdit, buttonAdd, formEdit, formAdd, nameInput, jobInput } from '../constants.js';
+import { Card } from '../scripts/Card.js';
+import { FormValidator } from '../scripts/FormValidator.js';
+import { Section } from '../scripts/Section.js';
+import { PopupWithForm } from '../scripts/PopupWithForm.js';
+import { PopupWithImage } from '../scripts/PopupWithImage.js';
+import { UserInfo } from '../scripts/UserInfo.js';
 //для валидатора
 const objectData = {
   inputSelector: '.popup__input',
