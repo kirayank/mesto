@@ -14,7 +14,7 @@
 }
 .popup__save:disabled{
     cursor: default;
-    background-image: url(../../../../images/save_button_invalid.svg);
+    background-image: url(../../../images/save_button_invalid.svg);
 }
 
 @media screen and (max-width: 514px) {

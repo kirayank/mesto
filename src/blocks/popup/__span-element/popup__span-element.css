@@ -1,19 +1,4 @@
 .popup__span-element{
-    /*position: absolute;
-    position: absolute;
-    left: 100px;
-    top: 100px;
-    */
-    /*display: inline;
-    width: 358px;
-    height: 12px;
-    margin: 5px 36px 10px;
-    white-space: normal;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 15px;
-    color: #FF0000;*/
     position: absolute;
     width: 358px;
     top: 25px;
