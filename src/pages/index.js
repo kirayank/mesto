@@ -1,47 +1,11 @@
 import './index.css';
-import { buttonEdit, buttonAdd, formEdit, formAdd, nameInput, jobInput } from '../utils/constants.js';
+import { initialCards, objectData, buttonEdit, buttonAdd, formEdit, formAdd, nameInput, jobInput } from '../utils/constants.js';
 import { Card } from '../components/Card.js';
 import { FormValidator } from '../components/FormValidator.js';
 import { Section } from '../components/Section.js';
 import { PopupWithForm } from '../components/PopupWithForm.js';
 import { PopupWithImage } from '../components/PopupWithImage.js';
 import { UserInfo } from '../components/UserInfo.js';
-//для валидатора
-const objectData = {
-  inputSelector: '.popup__input',
-  submitButtonSelector: '.popup__save',
-  inactiveButtonClass: 'popup__save_invalid',
-  inputErrorClass: 'popup__input_type_error',
-  errorClass: 'popup__span-element'
-};
-//для карточки
-const initialCards = [
-  {
-    name: 'Архыз',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-  },
-  {
-    name: 'Челябинская область',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-  },
-  {
-    name: 'Иваново',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-  },
-  {
-    name: 'Камчатка',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-  },
-  {
-    name: 'Холмогорский район',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-  },
-  {
-    name: 'Байкал',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-  }
-];
-
 
 function createCard(item){
   const card = new Card({data: item, handleCardClick: (link, name) => {
@@ -64,7 +28,7 @@ const formEditProfile = new PopupWithForm({
       data.info
     );
     formEditProfile.close();
-    formEditProfile.removeEventListeners();
+    //formEditProfile.removeEventListeners();
   }
 });
 formEditProfile.setEventListeners();
@@ -97,7 +61,7 @@ const formAddCard = new PopupWithForm({
     });
     initialCardList.addItem(addedCard);
     formAddCard.close()
-    formAddCard.removeEventListeners()
+    //formAddCard.removeEventListeners()
   }
 })
 formAddCard.setEventListeners()

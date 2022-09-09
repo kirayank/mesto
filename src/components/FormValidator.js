@@ -31,26 +31,28 @@ export class FormValidator {
 
     _hasInvalidInput = () => {
         return this._inputList.some((inputElement) => {
-            return !inputElement.validity.valid;
+            //return !inputElement.validity.valid;
+            return !inputElement.checkValidity();
         });
     };
 
     toggleButtonState = () => {
-
-        if ((this._hasInvalidInput(this._inputList)) || (this.value === '')) {
+        this._buttonElement.setAttribute("disabled", true);
+        if (this._hasInvalidInput()) {
             this._buttonElement.classList.add(this.validationConfig.inactiveButtonClass);
-            this._buttonElement.disabled = "disabled";
+            //this._buttonElement.disabled = "disabled";
+            this._buttonElement.setAttribute("disabled", true);
         } else {
             this._buttonElement.classList.remove(this.validationConfig.inactiveButtonClass);
-            this._buttonElement.disabled = "";
+            //this._buttonElement.disabled = "";
+            this._buttonElement.removeAttribute("disabled");
         }
     };
 
     _setEventListeners = () => {
-        if (this._buttonElement){
-            this.toggleButtonState(); // Вызвали проверку
-        }
+        //this.toggleButtonState();
         // Пробежались по массиву инпутов, навесили обработчик
+        this._buttonElement.setAttribute("disabled", true);
         this._inputList.forEach((inputElement) => {
             inputElement.addEventListener("input", () => {
                 this._checkValidity(inputElement);

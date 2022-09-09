@@ -2,9 +2,9 @@ import Popup from './Popup.js';
 class PopupWithForm extends Popup{
     constructor({popupSelector, handleFormSubmit}){ //кроме селектора попапа принимает в конструктор колбэк сабмита формы
         super(popupSelector);
-        this._inputList = this._popupSelector.querySelectorAll('.popup__input');
+        this._inputList = this._popup.querySelectorAll('.popup__input');
         this._handleFormSubmit = handleFormSubmit;
-        this._form = this._popupSelector.querySelector('.popup__form');
+        this._form = this._popup.querySelector('.popup__form');
         this.setEventListeners = this.setEventListeners.bind(this);
     }
     //собирает данные всех полей формы
