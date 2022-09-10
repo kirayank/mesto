@@ -67,6 +67,7 @@ const formAddCard = new PopupWithForm({
 formAddCard.setEventListeners()
 
 buttonAdd.addEventListener("click", () => {
+  formAddValidator.toggleButtonState();
   formAddCard.open();
 });
 
