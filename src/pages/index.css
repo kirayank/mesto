@@ -20,6 +20,7 @@
 @import url(../blocks/elements/__rectangle/elements__rectangle.css);
 @import url(../blocks/elements/__name/elements__name.css);
 @import url(../blocks/elements/__like/elements__like.css);
+@import url(../blocks/elements/__like-count/elements__like-count.css);
 @import url(../blocks/elements/__trash/elements__trash.css);
 @import url(../blocks/elements/__like/_active/elements__like_active.css);
 
@@ -43,6 +44,9 @@
 @import url(../blocks/popup/__input/_error/popup__input_type_error.css);
 @import url(../blocks/popup/__position/popup__position.css);
 @import url(../blocks/popup/__form/popup__form.css);
+@import url(../blocks/popup/__confirm/popup__confirm.css);
+@import url(../blocks/popup/__confirm-delete/popup__confirm-delete.css);
+@import url(../blocks/popup/__edit-avatar/popup__edit-avatar.css);
 
 
 /*шрифт*/

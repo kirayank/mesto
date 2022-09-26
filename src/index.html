@@ -67,6 +67,30 @@
             </form> 
           </div>
       </section>
+
+      <section class="popup popup_type_delete-confirm">
+        <div class="popup__container">
+            <button class="popup__exit" id="popup__exit_add-form" type="button" aria-label="Close"></button>
+            <form class="popup__form popup__confirm-delete" name="add-form" novalidate>
+                <h2 class="popup__heading">Вы уверены?</h2>
+                <button class="popup__save popup__confirm" type="submit" aria-label="Save"></button>
+            </form> 
+          </div>
+      </section>
+
+      <section class="popup popup_type_edit-avatar">
+        <div class="popup__container">
+            <button class="popup__exit" id="popup__exit_add-form" type="button" aria-label="Close"></button>
+            <form class="popup__form popup__edit-avatar" name="add-form" novalidate>
+                <h2 class="popup__heading">Обновить аватар</h2>
+                <div class="popup__position">
+                    <input type="url" class="popup__input" id="popup__input_link" name="source" autocomplete="on" placeholder="Ссылка на аватар" required>
+                    <span class="popup__span-element" id="popup__input_link-error"></span>
+                </div>
+                <button class="popup__save popup__save_valid" type="submit" aria-label="Save"></button>
+            </form> 
+          </div>
+      </section>
       
       <section class="popup popup_type_image">
         <div class="popup__container" id="popup__container_picture">
@@ -89,6 +113,7 @@
             <div class="elements__rectangle">
                 <h3 class="elements__name"></h3>
                 <button class="elements__like" type="button" aria-label="Like"></button>
+                <span class="elements__like-count"></span>
             </div>
         </li>
     </template>

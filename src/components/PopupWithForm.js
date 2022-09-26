@@ -5,6 +5,7 @@ class PopupWithForm extends Popup{
         this._inputList = this._popup.querySelectorAll('.popup__input');
         this._handleFormSubmit = handleFormSubmit;
         this._form = this._popup.querySelector('.popup__form');
+        this._avatar = document.querySelector('.profile__avatar');
         this.setEventListeners = this.setEventListeners.bind(this);
     }
     //собирает данные всех полей формы
@@ -17,6 +18,10 @@ class PopupWithForm extends Popup{
         console.log(this._inputValues);
         return this._inputValues;
     }
+
+    changeSubmitHandler(newSubmitHandler) {
+        this._handleFormSubmit = newSubmitHandler;
+    }
     //должен не только добавлять обработчик клика иконке закрытия, но и добавлять обработчик сабмита формы
     setEventListeners(){
         super.setEventListeners();
@@ -26,6 +31,10 @@ class PopupWithForm extends Popup{
             // передадим ей объект — результат работы _getInputValues
             this._handleFormSubmit(this._getInputValues());
           });
+    }
+
+    setAvatar(link){
+        this._avatar.style.backgroundImage = link;
     }
     //при закрытии попапа форма должна ещё и сбрасываться
     close(){
