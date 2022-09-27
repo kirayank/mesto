@@ -79,7 +79,8 @@ const createCard = (item) =>{
 
 const userInfo = new UserInfo({
   userNameSelector:'.profile__name',
-  userInfoSelector:'.profile__about'
+  userInfoSelector:'.profile__about',
+  userAvatarSelector:'.profile__avatar'
 });
 
 const formEditProfile = new PopupWithForm({
@@ -123,9 +124,10 @@ popupDeleteConfirm.setEventListeners();
 const popupEditAvatar = new PopupWithForm({
   popupSelector: '.popup_type_edit-avatar',
   handleFormSubmit: (data) => {
-    api.editAvatar(data.avatar)
+    api.editAvatar(data.source)
       .then((res) => {
-        popupEditAvatar.setAvatar(res.avatar);
+        console.log('че по аватару', res);
+        userInfo.setAvatar(res.avatar);
         popupEditAvatar.close();
       }
       )

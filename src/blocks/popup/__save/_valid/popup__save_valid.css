@@ -2,7 +2,16 @@
     width: 358px;
     height: 50px;
     background-image: url(../../../../images/save_button.svg);
+    background-color: black;
+    color: white;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
     border-radius: 2px;
+    padding: 0;
 }
 
 .popup__save_valid:disabled{

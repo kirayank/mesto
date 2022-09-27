@@ -12,6 +12,7 @@ export const formAdd = document.querySelector('.popup__add-form');
 export const nameInput = document.querySelector('#popup__input_name'); 
 export const jobInput = document.querySelector('#popup__input_about');
 export const avatarEdit = document.querySelector('.profile__avatar');
+export let userId;
 //для валидатора
 export const objectData = {
     inputSelector: '.popup__input',
