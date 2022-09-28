@@ -1,5 +1,6 @@
 .popup__save_invalid{
     background-image: url(../../../../images/save_button_invalid.svg);
+    padding: 0;
 }
 
 @media screen and (max-width: 514px) {

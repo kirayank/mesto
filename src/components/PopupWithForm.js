@@ -1,4 +1,5 @@
 import Popup from './Popup.js';
+
 class PopupWithForm extends Popup{
     constructor({popupSelector, handleFormSubmit}){ //кроме селектора попапа принимает в конструктор колбэк сабмита формы
         super(popupSelector);
@@ -25,11 +26,13 @@ class PopupWithForm extends Popup{
 
     renderLoading(isLoading){
         if(isLoading){
-            console.log('сохраняюсь11111111!');
+          console.log('сохраняюсь11111111!');
           this._button.style.backgroundImage = 'none';
           this._button.textContent = 'Сохранение...';
         } else{
           console.log('ничегошеньки не сейвилось');
+          this._button.textContent = 'Сохранить';
+          //this._buttonElement.removeAttribute("disabled");
         }
       }
     //должен не только добавлять обработчик клика иконке закрытия, но и добавлять обработчик сабмита формы
@@ -37,7 +40,7 @@ class PopupWithForm extends Popup{
         super.setEventListeners();
         this._form.addEventListener('submit', (evt) => {
             evt.preventDefault();
-            this.renderLoading(true);
+            
             // добавим вызов функции _handleFormSubmit
             // передадим ей объект — результат работы _getInputValues
             this._handleFormSubmit(this._getInputValues());

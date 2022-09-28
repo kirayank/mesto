@@ -18,30 +18,25 @@ const api = new Api({
   }
 });
 
-api.getProfile()
-  .then(res => {
+Promise.all([api.getInitialCards(), api.getProfile()])
+  .then(([cardList, res]) => {
     console.log('кирулин профиль', res);
     userInfo.setUserInfo(res.name, res.about);
     userId = res._id;
-    console.log('userId', userId);
-  })
-
-api.getInitialCards()
-  .then(cardList => {
-      cardList.forEach(data => {
-        const card = createCard({
-          link: data.link,
-          name: data.name,
-          alt: data.name,
-          likes: data.likes,
-          id: data._id,
-          userId: userId,
-          ownerId: data.owner._id
-        })
-        initialCardList.addItem(card)
+    cardList.forEach(data => {
+      const card = createCard({
+        link: data.link,
+        name: data.name,
+        alt: data.name,
+        likes: data.likes,
+        id: data._id,
+        userId: userId,
+        ownerId: data.owner._id
       })
-
+      initialCardList.addItem(card)
     })
+  })
+  .catch(console.log)
 
 const createCard = (item) =>{
   const card = new Card({
@@ -58,6 +53,7 @@ const createCard = (item) =>{
             card.removeCard();
             popupDeleteConfirm.close();
           })
+          .catch(console.log)
       })
     },
     handleLikeClick: (id) => {
@@ -66,11 +62,13 @@ const createCard = (item) =>{
         .then(res => {
           card.setLikes(res.likes)
         })
+        .catch(console.log)
       } else {
         api.addLike(id)
         .then(res => {
           card.setLikes(res.likes)
         })
+        .catch(console.log)
       }
     }
   }, '#element-template');
@@ -87,6 +85,7 @@ const userInfo = new UserInfo({
 const formEditProfile = new PopupWithForm({
   popupSelector: '.popup_type_edit-form', 
   handleFormSubmit: (data) => {
+    formAddCard.renderLoading(true)
     api.editProfile(data.name, data.info)
       .then((res) => {
         userInfo.setUserInfo(
@@ -95,6 +94,8 @@ const formEditProfile = new PopupWithForm({
         );
         formEditProfile.close();
       })
+      .catch(console.log)
+      .finally(formAddCard.renderLoading(false))
   }
 });
 formEditProfile.setEventListeners();
@@ -125,13 +126,15 @@ popupDeleteConfirm.setEventListeners();
 const popupEditAvatar = new PopupWithForm({
   popupSelector: '.popup_type_edit-avatar',
   handleFormSubmit: (data) => {
+    formAddCard.renderLoading(true)
     api.editAvatar(data.source)
       .then((res) => {
         console.log('че по аватару', res);
         userInfo.setAvatar(res.avatar);
         popupEditAvatar.close();
-      }
-      )
+      })
+      .catch(console.log)
+      .finally(formAddCard.renderLoading(false))
   }
 })
 popupEditAvatar.setEventListeners();
@@ -142,8 +145,10 @@ avatarEdit.addEventListener('click', () => {
 const formAddCard = new PopupWithForm({
   popupSelector: '.popup_type_add-form',
   handleFormSubmit: (data) => {
+    formAddCard.renderLoading(true)
     api.addCard(data.text, data.source)
       .then((res) => {
+        //formAddCard.renderLoading(true)
         const addedCard = createCard({
           link: res.link,
           name: res.name,
@@ -154,9 +159,12 @@ const formAddCard = new PopupWithForm({
           ownerId: res.owner._id
           //console.log('res', res)
       })
+      //formAddCard.renderLoading(true)
       initialCardList.addItem(addedCard);
       formAddCard.close()
       })
+      .catch(console.log)
+      .finally(formAddCard.renderLoading(false))
   }
 });
 formAddCard.setEventListeners();

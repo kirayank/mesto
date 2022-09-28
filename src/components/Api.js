@@ -18,7 +18,6 @@ export class Api {
             headers: this._headers
           })
           .then(this._checkResponse)
-          .catch(console.log)
     }
     //получить список всех карточек в виде массива
     getInitialCards() {
@@ -27,7 +26,6 @@ export class Api {
         headers: this._headers
       })
         .then(this._checkResponse)
-        .catch(console.log)
     }
 
     editProfile(name, about) {
@@ -40,7 +38,6 @@ export class Api {
           })
         })
           .then(this._checkResponse)
-          .catch(console.log)
       }
 
     addCard(name, link) {
@@ -53,7 +50,6 @@ export class Api {
           })
         })
           .then(this._checkResponse)
-          .catch(console.log)
       }
 
     deleteCard(id) {
@@ -62,7 +58,6 @@ export class Api {
           headers: this._headers,
         })
           .then(this._checkResponse)
-          .catch(console.log)
       }
 
     deleteLike(id) {
@@ -71,7 +66,6 @@ export class Api {
           headers: this._headers,
         })
           .then(this._checkResponse)
-          .catch(console.log)
       }
 
     addLike(id) {
@@ -80,7 +74,6 @@ export class Api {
           headers: this._headers,
         })
           .then(this._checkResponse)
-          .catch(console.log)
       }
   
     // обновление аватара
@@ -93,7 +86,6 @@ export class Api {
         })
       })
         .then(this._checkResponse)
-        .catch(console.log)
     }
   }
   

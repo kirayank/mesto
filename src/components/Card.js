@@ -25,6 +25,8 @@ export class Card {
     //генерация карточки
     generateCard() {
       this._element = this._getTemplate();
+      this._trash = this._element.querySelector('.elements__trash');
+      this._like = this._element.querySelector('.elements__like');
       this._elementImage = this._element.querySelector('.elements__image');
       this._elementImage.src = this._link;
       this._elementImage.alt = this._name;
@@ -42,7 +44,7 @@ export class Card {
     //показать иконку помойки
     showTrash() {
       if(this._ownerId !== this._userId){
-        this._element.querySelector('.elements__trash').style.display = 'none';
+        this._trash.style.display = 'none';
       }
     }
 
@@ -53,11 +55,11 @@ export class Card {
 
     //лайк
     _likeCard (){
-      this._element.querySelector('.elements__like').classList.add('elements__like_active');
+      this._like.classList.add('elements__like_active');
     }
 
     _dislikeCard(){
-      this._element.querySelector('.elements__like').classList.remove('elements__like_active');
+      this._like.classList.remove('elements__like_active');
     }
 
     setLikes(newLikes) {
@@ -75,10 +77,10 @@ export class Card {
       this._elementImage.addEventListener('click', () => {
         this._handleCardClick(this._name, this._link);
       });
-      this._element.querySelector('.elements__trash').addEventListener('click', () => {
+      this._trash.addEventListener('click', () => {
         this._handleDeleteClick(this._id);
       });
-      this._element.querySelector('.elements__like').addEventListener('click', () => {
+      this._like.addEventListener('click', () => {
         this._handleLikeClick(this._id);
       });
     }
