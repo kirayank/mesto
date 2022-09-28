@@ -5,7 +5,7 @@ class PopupWithForm extends Popup{
         this._inputList = this._popup.querySelectorAll('.popup__input');
         this._handleFormSubmit = handleFormSubmit;
         this._form = this._popup.querySelector('.popup__form');
-        this._button = this._popup.querySelector('.popup__save_valid');
+        this._button = this._popup.querySelector('.popup__save');
         this.setEventListeners = this.setEventListeners.bind(this);
     }
     //собирает данные всех полей формы

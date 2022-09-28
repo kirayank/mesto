@@ -4,12 +4,20 @@ export class Api {
       this._headers = config.headers; 
     }
 
+    _checkResponse(res) {
+      if(res.ok) {
+        return res.json();
+      } else {
+        return Promise.reject(res.status);
+      }
+  }
+
     getProfile(){
         return fetch(`${this._url}/users/me`, {
             method: 'GET',
             headers: this._headers
           })
-          .then(res => res.ok ? res.json() : Promise.reject(res.status))
+          .then(this._checkResponse)
           .catch(console.log)
     }
     //получить список всех карточек в виде массива
@@ -18,7 +26,7 @@ export class Api {
         method: 'GET',
         headers: this._headers
       })
-        .then(res => res.ok ? res.json() : Promise.reject(res.status))
+        .then(this._checkResponse)
         .catch(console.log)
     }
 
@@ -31,7 +39,7 @@ export class Api {
             about
           })
         })
-          .then(res => res.ok ? res.json() : Promise.reject(res.status))
+          .then(this._checkResponse)
           .catch(console.log)
       }
 
@@ -44,7 +52,7 @@ export class Api {
             link
           })
         })
-          .then(res => res.ok ? res.json() : Promise.reject(res.status))
+          .then(this._checkResponse)
           .catch(console.log)
       }
 
@@ -53,7 +61,7 @@ export class Api {
           method: "DELETE",
           headers: this._headers,
         })
-          .then(res => res.ok ? res.json() : Promise.reject(res.status))
+          .then(this._checkResponse)
           .catch(console.log)
       }
 
@@ -62,7 +70,7 @@ export class Api {
           method: "DELETE",
           headers: this._headers,
         })
-          .then(res => res.ok ? res.json() : Promise.reject(res.status))
+          .then(this._checkResponse)
           .catch(console.log)
       }
 
@@ -71,7 +79,7 @@ export class Api {
           method: "PUT",
           headers: this._headers,
         })
-          .then(res => res.ok ? res.json() : Promise.reject(res.status))
+          .then(this._checkResponse)
           .catch(console.log)
       }
   
@@ -84,7 +92,7 @@ export class Api {
           avatar
         })
       })
-        .then(res => res.ok ? res.json() : Promise.reject(res.status))
+        .then(this._checkResponse)
         .catch(console.log)
     }
   }
