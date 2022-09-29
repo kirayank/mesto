@@ -85,17 +85,17 @@ const userInfo = new UserInfo({
 const formEditProfile = new PopupWithForm({
   popupSelector: '.popup_type_edit-form', 
   handleFormSubmit: (data) => {
-    formAddCard.renderLoading(true)
+    formEditProfile.renderLoading(true)
     api.editProfile(data.name, data.info)
       .then((res) => {
         userInfo.setUserInfo(
           res.name,
-          res.info
+          res.about
         );
         formEditProfile.close();
       })
       .catch(console.log)
-      .finally(formAddCard.renderLoading(false))
+      .finally(() => formEditProfile.renderLoading(false))
   }
 });
 formEditProfile.setEventListeners();
@@ -126,7 +126,7 @@ popupDeleteConfirm.setEventListeners();
 const popupEditAvatar = new PopupWithForm({
   popupSelector: '.popup_type_edit-avatar',
   handleFormSubmit: (data) => {
-    formAddCard.renderLoading(true)
+    popupEditAvatar.renderLoading(true)
     api.editAvatar(data.source)
       .then((res) => {
         console.log('че по аватару', res);
@@ -134,7 +134,7 @@ const popupEditAvatar = new PopupWithForm({
         popupEditAvatar.close();
       })
       .catch(console.log)
-      .finally(formAddCard.renderLoading(false))
+      .finally(() => popupEditAvatar.renderLoading(false))
   }
 })
 popupEditAvatar.setEventListeners();
@@ -164,7 +164,7 @@ const formAddCard = new PopupWithForm({
       formAddCard.close()
       })
       .catch(console.log)
-      .finally(formAddCard.renderLoading(false))
+      .finally(() => formAddCard.renderLoading(false))
   }
 });
 formAddCard.setEventListeners();
